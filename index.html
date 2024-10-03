@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="/icon.ico" />
+    <link rel="apple-touch-icon" href="/icon.ico" />
+    <title>⚠️ MTDev Portfolio ⚠️</title>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background: #0e0e0e;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-direction: column;
+        overflow-x: hidden;
+        overflow-y: hidden;
+      }
+
+      .loading-circle {
+        width: 250px;
+        height: 250px;
+        margin: 50px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-top-color: #ff0000; /* Starting color */
+        animation: spin-rainbow 10s linear infinite;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* sfumatura leggera */
+      }
+
+      @keyframes spin-rainbow {
+        0% {
+          transform: rotate(0deg);
+          border-top-color: #ff0000; /* R */
+        }
+        16% {
+          border-top-color: #ffa500; /* Orange */
+        }
+        33% {
+          border-top-color: #ffff00; /* Yellow */
+        }
+        50% {
+          border-top-color: #008000; /* Green */
+        }
+        66% {
+          border-top-color: #0000ff; /* Blue */
+        }
+        83% {
+          border-top-color: #4b0082; /* Indigo */
+        }
+        100% {
+          transform: rotate(360deg);
+          border-top-color: #ff0000; /* R */
+        }
+      }
+
+      h1 {
+        position: relative;
+        font-size: 1.8rem;
+        font-weight: 300;
+        white-space: nowrap;
+        user-select: none;
+        display: inline-block;
+        background: linear-gradient(
+          190deg,
+          #ff0000,
+          #ff6600 15%,
+          #ffaa00 30%,
+          #ffff00 45%,
+          #aaff00 60%,
+          #00ff00 75%,
+          #0044ff 90%,
+          #ee82ee
+        );
+        background-size: 400% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: rainbowAnimation 30s infinite;
+        cursor: pointer;
+      }
+
+      h2 {
+        position: relative;
+        font-size: 2.5rem;
+        font-weight: 100;
+        white-space: nowrap;
+        user-select: none;
+        display: inline-block;
+        background-size: 400% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: white;
+        margin: 30px;
+      }
+
+      @keyframes rainbowAnimation {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loading-circle"></div>
+    <h2>Work in Progress</h2>
+    <h1>
+      <a href="https://github.com/michaeltorresdev/michaeltorresdev.github.io"
+        >Michael Torres Portfolio</a
+      >
+    </h1>
+  </body>
+</html>
