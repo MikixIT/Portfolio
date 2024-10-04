@@ -1,5 +1,5 @@
-# Portfolio
-[] Welcome to my portfolio! []
+# Portfolio 
+[] Welcome to My Portfolio! []
 
 ATM:
 ![](WIP.gif)
