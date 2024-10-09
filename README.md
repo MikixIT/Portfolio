@@ -10,4 +10,4 @@ www.michaeltorresdev.dev
 
 # ATM:
 
-![](WIP.gif)
+![](src/assets/images/WIP.gif)
