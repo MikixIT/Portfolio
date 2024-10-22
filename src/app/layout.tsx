@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
+import { Rubik } from "next/font/google";
 import "./globals.css";
+import { twMerge } from "tailwind-merge";
+
+const rubik = Rubik({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -13,7 +21,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body
+        className={twMerge(
+          rubik.variable,
+          "bg-gray-900 text-white antialiased font-sans"
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }

@@ -373,6 +373,16 @@ eval("\nObject.defineProperty(exports, \"__esModule\", ({\n    value: true\n}));
 
 /***/ }),
 
+/***/ "(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Rubik\",\"arguments\":[{\"subsets\":[\"latin\"],\"variable\":\"--font-sans\",\"weight\":\"400\"}],\"variableName\":\"rubik\"}":
+/*!****************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/font/google/target.css?{"path":"src/app/layout.tsx","import":"Rubik","arguments":[{"subsets":["latin"],"variable":"--font-sans","weight":"400"}],"variableName":"rubik"} ***!
+  \****************************************************************************************************************************************************************************************************/
+/***/ ((module) => {
+
+eval("// Exports\nmodule.exports = {\n\t\"style\": {\"fontFamily\":\"'__Rubik_12f8f5', '__Rubik_Fallback_12f8f5'\",\"fontWeight\":400,\"fontStyle\":\"normal\"},\n\t\"className\": \"__className_12f8f5\",\n\t\"variable\": \"__variable_12f8f5\"\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzP3tcInBhdGhcIjpcInNyYy9hcHAvbGF5b3V0LnRzeFwiLFwiaW1wb3J0XCI6XCJSdWJpa1wiLFwiYXJndW1lbnRzXCI6W3tcInN1YnNldHNcIjpbXCJsYXRpblwiXSxcInZhcmlhYmxlXCI6XCItLWZvbnQtc2Fuc1wiLFwid2VpZ2h0XCI6XCI0MDBcIn1dLFwidmFyaWFibGVOYW1lXCI6XCJydWJpa1wifSIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0EsV0FBVyxpR0FBaUc7QUFDNUc7QUFDQTtBQUNBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vcG9ydGZvbGlvLXNpdGUvLi9ub2RlX21vZHVsZXMvbmV4dC9mb250L2dvb2dsZS90YXJnZXQuY3NzPzYxM2EiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhwb3J0c1xubW9kdWxlLmV4cG9ydHMgPSB7XG5cdFwic3R5bGVcIjoge1wiZm9udEZhbWlseVwiOlwiJ19fUnViaWtfMTJmOGY1JywgJ19fUnViaWtfRmFsbGJhY2tfMTJmOGY1J1wiLFwiZm9udFdlaWdodFwiOjQwMCxcImZvbnRTdHlsZVwiOlwibm9ybWFsXCJ9LFxuXHRcImNsYXNzTmFtZVwiOiBcIl9fY2xhc3NOYW1lXzEyZjhmNVwiLFxuXHRcInZhcmlhYmxlXCI6IFwiX192YXJpYWJsZV8xMmY4ZjVcIlxufTtcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/font/google/target.css?{\"path\":\"src/app/layout.tsx\",\"import\":\"Rubik\",\"arguments\":[{\"subsets\":[\"latin\"],\"variable\":\"--font-sans\",\"weight\":\"400\"}],\"variableName\":\"rubik\"}\n");
+
+/***/ }),
+
 /***/ "(ssr)/./node_modules/next/dist/client/add-base-path.js":
 /*!********************************************************!*\
   !*** ./node_modules/next/dist/client/add-base-path.js ***!
