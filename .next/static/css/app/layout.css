@@ -505,3 +505,8 @@ video {
   --tw-contain-style:  ;
 }
 
+body {
+  background-color: black;
+  color: white;
+}
+
