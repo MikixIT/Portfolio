@@ -14,7 +14,6 @@
       body {
         font-family: "Inter", sans-serif;
         background: #0e0e0e;
-        margin: 0;
         height: 100vh;
         display: flex;
         align-items: center;
@@ -28,7 +27,7 @@
       .loading-circle {
         width: 250px;
         height: 250px;
-        margin: 50px;
+        margin: 10px;
         border-radius: 50%;
         border: 3px solid transparent;
         border-top-color: #ff0000; /* Starting color */
@@ -63,8 +62,9 @@
       }
 
       h1 {
+        margin-bottom: 0.5rem;
         position: relative;
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: 300;
         white-space: nowrap;
         user-select: none;
@@ -90,7 +90,7 @@
 
       h2 {
         position: relative;
-        font-size: 2.5rem;
+        font-size: 1.7rem;
         font-weight: 100;
         white-space: nowrap;
         user-select: none;
@@ -99,12 +99,25 @@
         background-clip: text;
         -webkit-background-clip: text;
         color: white;
-        margin: 10px;
+      }
+
+      h3 {
+        position: relative;
+        font-size: 1.8rem;
+        font-weight: 100;
+        white-space: nowrap;
+        user-select: none;
+        display: inline-block;
+        background-size: 400% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: white;
+        text-decoration: none;
       }
 
       h2 a {
         position: relative;
-        font-size: 2.5rem;
+        font-size: 1.2rem;
         font-weight: 100;
         white-space: nowrap;
         user-select: none;
@@ -113,8 +126,8 @@
         background-clip: text;
         -webkit-background-clip: text;
         color: white;
-        margin: 10px;
         text-decoration: none;
+        padding: 1rem;
       }
 
       h2 a {
@@ -174,14 +187,14 @@
   </head>
   <body>
     <div class="loading-circle"></div>
-    <h2>Work in Progress</h2>
+    <h3>Work in Progress</h3>
     <h1>
       <a href="https://github.com/MikixIT/Portfolio"
         >Michael Torres Portfolio</a
       >
     </h1>
     <h2>
-      <a href="https://github.com/MikixIT/">More Project Here </a>
+      <a href="https://github.com/MikixIT/">MORE PROJECT HERE </a>
     </h2>
   </body>
 </html>
