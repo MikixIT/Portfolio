@@ -99,7 +99,64 @@
         background-clip: text;
         -webkit-background-clip: text;
         color: white;
-        margin: 30px;
+        margin: 10px;
+      }
+
+      h2 a {
+        position: relative;
+        font-size: 2.5rem;
+        font-weight: 100;
+        white-space: nowrap;
+        user-select: none;
+        display: inline-block;
+        background-size: 400% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: white;
+        margin: 10px;
+        text-decoration: none;
+      }
+
+      h2 a {
+        animation: wiggle 4s linear infinite;
+      }
+
+      /* Keyframes animation */
+      @keyframes wiggle {
+        0%,
+        7% {
+          transform: rotateZ(0);
+        }
+        15% {
+          transform: rotateZ(-15deg);
+        }
+        20% {
+          transform: rotateZ(10deg);
+        }
+        25% {
+          transform: rotateZ(-10deg);
+        }
+        30% {
+          transform: rotateZ(6deg);
+        }
+        35% {
+          transform: rotateZ(-4deg);
+        }
+        40%,
+        100% {
+          transform: rotateZ(0);
+        }
+      }
+
+      body {
+        background: #000;
+      }
+
+      h2 a {
+        border: none;
+        border-top: 1px solid white;
+        border-radius: 0 0 0.2em 0.2em;
+        transform-origin: 50% 5em;
       }
 
       @keyframes rainbowAnimation {
@@ -123,5 +180,8 @@
         >Michael Torres Portfolio</a
       >
     </h1>
+    <h2>
+      <a href="https://github.com/MikixIT/">More Project Here </a>
+    </h2>
   </body>
 </html>
