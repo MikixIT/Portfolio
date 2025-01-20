@@ -5,14 +5,17 @@ import "boxicons";
 function ContactButton() {
   return (
     <>
-      <button>
+      <button
+        onClick={() => (window.location.href = "https://www.example.com")}
+      >
         {"  "}
-        My Resume
+        My CV
         <box-icon
           name="download"
           size="m"
           animation="tada-hover"
-          color="black"
+          color="white"
+          style={{ marginLeft: 8 }}
         ></box-icon>
       </button>
     </>

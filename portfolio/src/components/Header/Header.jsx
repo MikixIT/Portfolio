@@ -13,6 +13,7 @@ function Header() {
             size="sm"
             border="square"
             animation="tada"
+            style={{ marginLeft: 5 }}
           ></box-icon>{" "}
         </a>
       </p>
