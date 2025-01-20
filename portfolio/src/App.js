@@ -1,4 +1,5 @@
 import "./App.scss";
+import ContactButton from "./components/ContactButton/ContactButton";
 import Header from "./components/Header/Header";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
           MICHAEL <br /> TORRES <br /> DEV{" "}
         </h1>
       </div>
+      <ContactButton />
     </>
   );
 }
