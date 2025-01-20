@@ -1,0 +1,16 @@
+.top-description {
+  position: fixed;
+  z-index: 11;
+  top: 50px;
+  right: 5vw;
+  max-width: 140px;
+
+  color: #111;
+  text-transform: uppercase;
+
+  font: {
+    weight: 300;
+    size: 18px;
+  }
+  text-align: right;
+}
