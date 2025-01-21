@@ -6,14 +6,17 @@ function ContactButton() {
   return (
     <>
       <button
-        onClick={() => (window.location.href = "https://www.example.com")}
+        onClick={() =>
+          (window.location.href =
+            "https://github.com/MikixIT/Portfolio/blob/portfolio/CV/MichaelTorres-Lebenslauf.pdf?raw=true")
+        }
       >
         {"  "}
         My CV
         <box-icon
           name="download"
           size="m"
-          animation="tada-hover"
+          animation="tada"
           color="white"
           style={{ marginLeft: 8 }}
         ></box-icon>
