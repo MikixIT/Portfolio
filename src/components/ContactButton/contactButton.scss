@@ -1,0 +1,20 @@
+button {
+  background: #111;
+  color: white;
+  border: 2px solid black;
+  position: absolute;
+  right: 5vw;
+  bottom: 10vh;
+  padding: 30px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 3px;
+  cursor: pointer;
+
+  font: {
+    size: 18px;
+  }
+}
