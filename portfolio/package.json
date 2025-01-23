@@ -25,7 +25,8 @@
     "eject": "react-scripts eject"
   },
   "build": {
-    "index": "build/index.html"
+    "index": "build/index.html",
+    "publicPath": "/"
   },
   "eslintConfig": {
     "extends": [
