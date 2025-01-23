@@ -1,3 +1,26 @@
+:root {
+  --body_bg: rgba(255, 255, 255, 0.967);
+  --body_color: #111;
+  --link_color: grey;
+}
+
+.dark-mode {
+  --body_bg: #111;
+  --body_color: rgba(255, 255, 255, 0.967);
+  --link_color: rgb(255, 220, 220);
+}
+
+.light-mode {
+  --body_bg: rgba(255, 255, 255, 0.967);
+  --body_color: #111;
+  --link_color: grey;
+}
+
+body {
+  background-color: var(--body_bg);
+  color: var(--body_color);
+}
+
 .main-container {
   height: 100vh;
   display: flex;
@@ -13,7 +36,9 @@
     max-width: 70vw;
     text-transform: uppercase;
     font-family: "Anton", sans-serif;
-    color: #111;
+    color: var(--body_color);
     line-height: 1;
+    pointer-events: none;
+    margin-right: 10px;
   }
 }
