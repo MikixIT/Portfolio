@@ -1,17 +1,27 @@
+import { useRef } from "react";
 import "./App.scss";
 import ContactButton from "./components/ContactButton/ContactButton";
 import Header from "./components/Header/Header";
+import ProjectShow from "./components/ProjectShow/ProjectShow";
+import DarkMode from "./components/DarkMode/DarkMode";
 
 function App() {
+  const projectShowRef = useRef(null);
+
   return (
     <>
       <Header />
-      <div className="main-container">
+      <section className="main-container">
+        <DarkMode />
         <h1>
           MICHAEL <br /> TORRES <br /> DEV{" "}
         </h1>
-      </div>
-      <ContactButton />
+        <ContactButton />
+      </section>
+
+      <section id="project-show" ref={projectShowRef}>
+        <ProjectShow />
+      </section>
     </>
   );
 }
