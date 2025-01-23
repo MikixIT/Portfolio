@@ -19,9 +19,9 @@ function App() {
         <ContactButton />
       </section>
 
-      <section id="project-show" ref={projectShowRef}>
+      {/* <section id="project-show" ref={projectShowRef}>
         <ProjectShow />
-      </section>
+      </section> */}
     </>
   );
 }
