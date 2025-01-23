@@ -18,10 +18,6 @@ function App() {
         </h1>
         <ContactButton />
       </section>
-
-      {/* <section id="project-show" ref={projectShowRef}>
-        <ProjectShow />
-      </section> */}
     </>
   );
 }
