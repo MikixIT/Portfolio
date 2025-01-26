@@ -40,5 +40,27 @@ body {
     line-height: 1;
     pointer-events: none;
     margin-right: 10px;
+
+    @media (max-width: 768px) {
+      margin-bottom: 30vh;
+    }
+
+    #type-writer {
+      background: transparent;
+      margin-top: 20px;
+      color: var(--body_color);
+      font-size: clamp(72px, 12vw, 12vw);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
+      max-width: 50%;
+
+      @media (max-width: 768px) {
+        #type-writer {
+          max-width: 90vw;
+          font-size: clamp(60px, 10vw, 10vw);
+        }
+      }
+    }
   }
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./darkMode.scss";
+import "animate.css";
 
 function DarkMode() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -11,7 +12,10 @@ function DarkMode() {
 
   return (
     <div className="buttonDarkMode">
-      <button onClick={toggleDarkMode}>
+      <button
+        className="animate__animated animate__backInDown animate__delay-2s"
+        onClick={toggleDarkMode}
+      >
         <box-icon
           type="solid"
           name="bulb"
