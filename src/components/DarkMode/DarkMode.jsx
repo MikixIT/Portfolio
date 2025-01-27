@@ -13,7 +13,7 @@ function DarkMode() {
   return (
     <div className="buttonDarkMode">
       <button
-        className="animate__animated animate__backInDown animate__delay-2s"
+        className="animate__animated animate__backInDown animate__delay-5s"
         onClick={toggleDarkMode}
       >
         <box-icon

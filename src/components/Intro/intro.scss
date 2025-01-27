@@ -25,9 +25,9 @@
     height: 50vh;
     width: 100%;
     background: transparent;
-    font-size: clamp(50px, 10vw, 10vw);
+    font-size: clamp(40px, 10vw, 10vw);
     font-weight: 700;
-    margin-bottom: 20vh;
+    margin-bottom: 30vh;
     max-width: 70vw;
     text-transform: uppercase;
     font-family: "Anton", sans-serif;
@@ -39,7 +39,6 @@
       text-transform: uppercase;
       line-height: 1;
       padding: 15px;
-
       text-align: center;
     }
   }
