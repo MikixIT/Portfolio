@@ -5,11 +5,13 @@ import Header from "./components/Header/Header";
 // import ProjectShow from "./components/ProjectShow/ProjectShow";
 import DarkMode from "./components/DarkMode/DarkMode";
 import { Typewriter } from "react-simple-typewriter";
+import Intro from "./components/Intro/Intro";
 
 // const projectShowRef = useRef(null);
 function App() {
   return (
     <>
+      <Intro />
       <Header />
       <section className="main-container">
         <DarkMode />
