@@ -20,10 +20,10 @@ function ContactButton() {
   return (
     <>
       <button
-        className="button-contact"
+        className="button-contact animate__pulse"
         onClick={() =>
           (window.location.href =
-            "https://github.com/MikixIT/Portfolio/blob/portfolio/CV/MichaelTorres-Lebenslauf.pdf?raw=true")
+            "https://github.com/MikixIT/Portfolio/raw/refs/heads/portfolio/CV/MichaelTorres-Lebenslauf.pdf")
         }
       >
         {"  "}

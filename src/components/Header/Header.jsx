@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./header.scss";
 import "boxicons";
+import "animate.css";
 
 function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -19,7 +20,7 @@ function Header() {
 
   return (
     <div className="header-wrap">
-      <p className="top-description">
+      <p className="top-description animate__animated animate__tada animate__delay-5s animate__repeat-1	5">
         My Github{" "}
         <a href="https://www.github.com/mikixit">
           <box-icon
