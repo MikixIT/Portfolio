@@ -1,0 +1,50 @@
+.preloader {
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(34, 34, 34, 1) 100%
+  );
+  color: --var(--body_color);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 55;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .texts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 50vh;
+    width: 100%;
+    background: transparent;
+    font-size: clamp(40px, 10vw, 10vw);
+    font-weight: 700;
+    margin-bottom: 30vh;
+    max-width: 70vw;
+    text-transform: uppercase;
+    font-family: "Anton", sans-serif;
+
+    span {
+      background: transparent;
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.967);
+      text-transform: uppercase;
+      line-height: 1;
+      padding: 15px;
+      text-align: center;
+
+      @media (max-width: 768px) {
+        font-size: clamp(90px, 10vw, 10vw);
+        padding: 40px;
+      }
+    }
+  }
+}
