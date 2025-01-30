@@ -40,6 +40,9 @@ function App() {
         </h1>
         <ContactButton />
       </section>
+      <section>
+        <ProjectShow />
+      </section>
     </>
   );
 }
