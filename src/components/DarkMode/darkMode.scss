@@ -1,10 +1,12 @@
 .buttonDarkMode {
   position: fixed;
   z-index: 11;
-  top: 40px;
-  left: 2.5vw;
+  top: 35px;
+  left: 3vw;
+  height: 100px;
   background: transparent;
   transition: 0.7s ease-in-out;
+  margin-bottom: 10px;
 
   button {
     border: none;
