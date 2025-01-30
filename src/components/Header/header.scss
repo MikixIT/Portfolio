@@ -13,10 +13,12 @@
   letter-spacing: 1px;
   transition: 0.7s ease-in-out;
   cursor: default;
+  background: transparent;
 
   font: {
     weight: 300;
     size: 18px;
+    background: transparent;
   }
 
   a:hover {
