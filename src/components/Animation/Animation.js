@@ -8,25 +8,14 @@ export const preLoaderAnim = () => {
     css: { overflowY: "hidden" },
     ease: "power2.inOut",
   })
-    .to(".texts-container", {
-      duration: 0,
-      opacity: 1,
-      ease: "Power3.easeOut",
-    })
-    .from(".texts-container span", {
+
+    .to(".texts-container span", {
+      //IN
       duration: 1.1,
       delay: 1,
-      y: 1000,
-      skewY: 10,
+      skewX: 50,
       stagger: 0.3,
-      ease: "Power3.easeOut",
-    })
-    .to(".texts-container span", {
-      duration: 2.2,
-      y: 1000,
-      skewY: -70,
-      stagger: 0.2,
-      ease: "Power3.easeOut",
+      ease: "Sine.easeIn",
     })
 
     .to("body", {

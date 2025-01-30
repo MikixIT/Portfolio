@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import DarkMode from "./components/DarkMode/DarkMode";
 import { Typewriter } from "react-simple-typewriter";
 import Intro from "./components/Intro/Intro";
+import ProjectShow from "./components/ProjectShow/ProjectShow";
 
 // const projectShowRef = useRef(null);
 function App() {

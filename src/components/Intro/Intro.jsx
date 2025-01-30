@@ -12,10 +12,7 @@ function Intro() {
   return (
     <div className="preloader">
       <div className="texts-container">
-        <span className="animate__animated animate__bounce animate__repeat-2">
-          Welcome
-        </span>
-        <span>to </span>
+        <span className="animate__animated animate__flash">Welcome to</span>
         <span> Michael's </span>
         <span> Portolio </span>
       </div>
