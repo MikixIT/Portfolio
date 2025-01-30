@@ -40,9 +40,9 @@ function App() {
         </h1>
         <ContactButton />
       </section>
-      <section>
+      {/* <section>
         <ProjectShow />
-      </section>
+      </section> */}
     </>
   );
 }
