@@ -41,20 +41,22 @@ body {
     line-height: 1;
     pointer-events: none;
     margin-right: 10px;
+    margin-left: 10px;
 
     @media (max-width: 768px) {
       margin-bottom: 30vh;
+      margin-left: -5px;
     }
 
     #type-writer {
       background: transparent;
       margin-top: 15px;
       color: var(--body_color);
-      font-size: clamp(52px, 10vw, 10vw);
+      font-size: clamp(52px, 12vw, 12vw);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: clip;
-      max-width: 50%;
+      max-width: 60%;
 
       @media (max-width: 768px) {
         #type-writer {

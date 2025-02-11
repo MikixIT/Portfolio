@@ -6,7 +6,7 @@
     rgba(0, 0, 0, 1) 0%,
     rgba(34, 34, 34, 1) 100%
   );
-  color: --var(--body_color);
+  color: var(--body_color);
   position: fixed;
   bottom: 0;
   left: 0;

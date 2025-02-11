@@ -43,14 +43,13 @@ function DarkMode() {
   return (
     <div className="buttonDarkMode">
       <button
-        className="animate__animated animate__backInDown animate__delay-5s"
+        className="animate__animated animate__backInDown animate__delay-2s"
         onClick={toggleDarkMode}
       >
         <box-icon
           type="solid"
           name="bulb"
           color={isDarkMode ? "black" : "white"}
-          animation="flashing-hover"
           styel={" background: transparent;"}
         ></box-icon>
       </button>
