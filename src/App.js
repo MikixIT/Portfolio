@@ -12,7 +12,6 @@ import ProjectShow from "./components/ProjectShow/ProjectShow";
 function App() {
   return (
     <>
-      <Intro />
       <Header />
       <section className="main-container">
         <DarkMode />
@@ -23,10 +22,13 @@ function App() {
               words={[
                 ".DEV",
                 "CREATIVE",
+                "DEVELOPER",
+                "BASED IN",
+                "HAMBURG",
                 "CODER",
                 "PROBLEM",
                 "SOLVING",
-                "DEVELOPER",
+                "DREAMER",
                 "STILL HERE?",
               ]}
               loop={999}

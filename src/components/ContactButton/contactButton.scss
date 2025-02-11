@@ -13,7 +13,7 @@
   justify-content: center;
   letter-spacing: 3px;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
   font: {
     size: 18px;
@@ -27,4 +27,65 @@
   border: 2px solid var(--body_color);
   box-shadow: 2px 2px 4px var(--body_color);
   padding: 33px;
+}
+
+.dropdown-menu {
+  background: var(--bg);
+  color: var(--body_color);
+  border: 2px solid var(--body_color);
+  position: absolute;
+  right: 4vw;
+  bottom: 18vh;
+  padding: 35px;
+  text-transform: uppercase;
+  vertical-align: middle;
+
+  font: {
+    size: 18px;
+  }
+
+  .dropdown-item {
+    cursor: pointer;
+  }
+}
+
+.button-options {
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.button-options .dropdown-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 18px;
+  padding: 8px;
+  transition: 0.2s ease-in-out;
+}
+
+.button-options .dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.185);
+  border-radius: 10%;
+  scale: 1.1;
+  transition: 0.2s ease-in-out;
+}
+
+.button-options .dropdown-item {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px 0;
+  background-color: var(--bg);
+  color: var(--body_color);
+  border: 2px solid var(--body_color);
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.button-options .dropdown-item:hover {
+  background-color: var(--body_bg);
+  transform: scale(1.01);
 }
