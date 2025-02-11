@@ -22,6 +22,35 @@ function ContactButton() {
     };
   }, []);
 
+  useEffect(() => {
+    if (isDropdownOpen) {
+      gsap.to(buttonRef.current, {
+        width: "300px",
+        duration: 0.1,
+        ease: "power2.out",
+      });
+      gsap.fromTo(
+        dropdownRef.current,
+        { opacity: 0, y: -30 },
+        { opacity: 1, y: 0, duration: 2.1, ease: "power2.out" }
+      );
+    } else {
+      gsap.to(dropdownRef.current, {
+        opacity: 0,
+        y: -20,
+        duration: 0.1,
+        ease: "power2.in",
+        onComplete: () => {
+          gsap.to(buttonRef.current, {
+            width: "200px",
+            duration: 0.1,
+            ease: "power2.in",
+          });
+        },
+      });
+    }
+  }, [isDropdownOpen]);
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -54,7 +83,7 @@ function ContactButton() {
               className="dropdown-item"
               onClick={() =>
                 handleOptionClick(
-                  "https://github.com/MikixIT/Portfolio/raw/refs/heads/portfolio/CV/MichaelTorres-Lebenslauf-EN.pdf"
+                  "https://github.com/MikixIT/Portfolio/raw/refs/heads/portfolio/CV/MichaelTorres-CV.pdf"
                 )
               }
             >

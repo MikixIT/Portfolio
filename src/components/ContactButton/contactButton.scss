@@ -65,13 +65,6 @@
   transition: 0.2s ease-in-out;
 }
 
-.button-options .dropdown-item:hover {
-  background-color: rgba(0, 0, 0, 0.185);
-  border-radius: 10%;
-  scale: 1.1;
-  transition: 0.2s ease-in-out;
-}
-
 .button-options .dropdown-item {
   display: inline-block;
   padding: 10px 20px;
@@ -87,5 +80,6 @@
 
 .button-options .dropdown-item:hover {
   background-color: var(--body_bg);
-  transform: scale(1.01);
+  transform: scale(1.1);
+  transition: 0.2s ease-in-out;
 }
