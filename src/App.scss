@@ -52,11 +52,11 @@ body {
       background: transparent;
       margin-top: 15px;
       color: var(--body_color);
-      font-size: clamp(52px, 12vw, 12vw);
+      font-size: clamp(52px, 10vw, 10vw);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: clip;
-      max-width: 60%;
+      max-width: 50%;
 
       @media (max-width: 768px) {
         #type-writer {
