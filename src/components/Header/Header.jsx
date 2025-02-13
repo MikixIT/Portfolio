@@ -20,19 +20,35 @@ function Header() {
 
   return (
     <div className="header-wrap">
-      <p className="top-description animate__animated animate__tada animate__delay-5s animate__repeat-1	5">
-        My Github{" "}
-        <a href="https://www.github.com/mikixit">
-          <box-icon
-            name="link-external"
-            size="sm"
-            border="square"
-            animation="tada"
-            style={{ marginLeft: 5 }}
-            color={isDarkMode ? "white" : "black"}
-          ></box-icon>{" "}
-        </a>
-      </p>
+      <div className="top-description animate__animated animate__tada animate__delay-5s animate__repeat-1	5">
+        <p>
+          Github{" "}
+          <a href="https://www.github.com/mikixit">
+            <box-icon
+              name="link-external"
+              size="sm"
+              border="square"
+              animation="tada"
+              style={{ marginLeft: 5 }}
+              color={isDarkMode ? "white" : "black"}
+            ></box-icon>{" "}
+          </a>{" "}
+        </p>
+
+        <p>
+          Linkedin{" "}
+          <a href="https://www.linkedin.com/in/michaeltorresdev/">
+            <box-icon
+              name="link-external"
+              size="sm"
+              border="square"
+              animation="tada"
+              style={{ marginLeft: 5 }}
+              color={isDarkMode ? "white" : "black"}
+            ></box-icon>{" "}
+          </a>{" "}
+        </p>
+      </div>
     </div>
   );
 }
