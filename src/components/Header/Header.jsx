@@ -20,8 +20,8 @@ function Header() {
 
   return (
     <div className="header-wrap">
-      <div className="top-description animate__animated animate__tada animate__delay-5s animate__repeat-1	5">
-        <p>
+      <div className="top-description ">
+        <p className="animate__animated animate__tada animate__delay-5s">
           Github{" "}
           <a href="https://www.github.com/mikixit">
             <box-icon
@@ -35,7 +35,7 @@ function Header() {
           </a>{" "}
         </p>
 
-        <p>
+        <p className="animate__animated animate__tada animate__delay-2s ">
           Linkedin{" "}
           <a href="https://www.linkedin.com/in/michaeltorresdev/">
             <box-icon
