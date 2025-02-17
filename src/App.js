@@ -1,14 +1,16 @@
-// import { useRef } from "react";
 import "./App.scss";
 import ContactButton from "./components/ContactButton/ContactButton";
 import Header from "./components/Header/Header";
-// import ProjectShow from "./components/ProjectShow/ProjectShow";
 import DarkMode from "./components/DarkMode/DarkMode";
 import { Typewriter } from "react-simple-typewriter";
 import Intro from "./components/Intro/Intro";
 import ProjectShow from "./components/ProjectShow/ProjectShow";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
 
-// const projectShowRef = useRef(null);
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
   return (
     <>
@@ -42,9 +44,9 @@ function App() {
         </h1>
         <ContactButton />
       </section>
-      {/* <section>
+      <section className="main-content">
         <ProjectShow />
-      </section> */}
+      </section>
     </>
   );
 }

@@ -1,6 +1,22 @@
 .project-show {
-  height: 1000px;
-  width: 1000px;
-  margin-top: 300px;
-  font-size: 200px;
+  padding: 40px;
+  background: #f9f9f9;
+  min-height: 100vh; /* Imposta l'altezza minima a 100vh per occupare una pagina intera */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra verticalmente il contenuto */
+  align-items: center; /* Centra orizzontalmente il contenuto */
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3em; /* Rendi la scritta molto grande */
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra le card orizzontalmente */
+    gap: 20px; /* Aggiungi uno spazio tra le card */
+  }
 }
