@@ -25,7 +25,7 @@ function Header() {
 
   useEffect(() => {
     const showAnim = gsap
-      .fromTo(".header-wrap", { xPercent: 0 }, { xPercent: 100, duration: 2.5 })
+      .fromTo(".header-wrap", { xPercent: 0 }, { xPercent: 200, duration: 1.5 })
       .pause();
 
     ScrollTrigger.create({
@@ -36,10 +36,10 @@ function Header() {
       onUpdate: (self) => {
         if (self.direction === 1) {
           // Scrolling down
-          showAnim.duration(9.5).play();
+          showAnim.duration(19.5).play();
         } else {
           // Scrolling up
-          showAnim.duration(3.2).reverse();
+          showAnim.duration(8.2).reverse();
         }
       },
     });
