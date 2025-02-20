@@ -12,6 +12,40 @@ import { useEffect } from "react";
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  useEffect(() => {
+    gsap.from("h1", {
+      duration: 1,
+      y: 50,
+      opacity: 0,
+      ease: "power4.out",
+      delay: 0.5,
+    });
+    gsap.to("h1", {
+      duration: 1,
+      y: 0,
+      opacity: 1,
+      ease: "power4.out",
+      delay: 0.5,
+    });
+
+    // Animazione per il Typewriter
+    gsap.from("#type-writer", {
+      duration: 1,
+      y: 50,
+      opacity: 1,
+      ease: "power4.out",
+      delay: 1,
+    });
+
+    gsap.to("#type-writer", {
+      duration: 1,
+      y: 0,
+      opacity: 1,
+      ease: "power4.out",
+      delay: 1.5,
+    });
+  }, []);
+
   return (
     <>
       <Header />
@@ -42,7 +76,9 @@ function App() {
             />
           </span>{" "}
         </h1>
-        <ContactButton />
+        <div className="contact-button">
+          <ContactButton />
+        </div>
       </section>
       <section className="main-content">
         <ProjectShow />

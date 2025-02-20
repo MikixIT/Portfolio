@@ -45,6 +45,22 @@ function Header() {
     });
   }, []);
 
+  useEffect(() => {
+    // Animazione per l'intestazione
+    gsap.from(".header-wrap", {
+      duration: 1,
+      y: 50,
+      opacity: 1,
+      ease: "power4.out",
+    });
+    gsap.to(".header-wrap", {
+      duration: 1,
+      y: 0,
+      opacity: 1,
+      ease: "power4.out",
+    });
+  }, []);
+
   return (
     <div className="header-wrap">
       <div className="top-description">

@@ -43,6 +43,21 @@ function DarkMode() {
     }
   }, []);
 
+  useEffect(() => {
+    // Animazione per l'intestazione
+    gsap.from(".buttonDarkMode", {
+      duration: 1,
+      y: 700,
+      opacity: 1,
+      ease: "power2.out",
+    });
+    gsap.to(".buttonDarkMode", {
+      duration: 1,
+      y: 0,
+      opacity: 1,
+      ease: "power2.out",
+    });
+  }, []);
   return (
     <div className="buttonDarkMode" ref={buttonRef}>
       <button className="animate__animated" onClick={toggleDarkMode}>
