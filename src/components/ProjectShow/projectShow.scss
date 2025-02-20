@@ -1,6 +1,5 @@
 .project-show {
   padding: 40px;
-  background: #f9f9f9;
   min-height: 100vh; /* Imposta l'altezza minima a 100vh per occupare una pagina intera */
   display: flex;
   flex-direction: column;
@@ -9,8 +8,12 @@
 
   h2 {
     text-align: center;
+    margin-top: 15px;
     margin-bottom: 20px;
-    font-size: 3em; /* Rendi la scritta molto grande */
+    font-size: clamp(100px, 13vw, 13vw);
+    background-color: transparent;
+    text-transform: uppercase;
+    font-family: "Anton", sans-serif;
   }
 
   .cards {

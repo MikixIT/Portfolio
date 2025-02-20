@@ -1,17 +1,25 @@
+// Colors
+$color-primary-white: rgb(240, 240, 240);
+
 .card {
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 15px;
   margin: 10px;
-  width: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 24rem;
+  height: 36rem;
+  box-shadow: 0 10px 30px 5px rgba(29, 29, 29, 0.2);
   transition: transform 0.3s ease;
   text-align: center; /* Centra il contenuto */
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  color: $color-primary-white;
 
   .card-image {
     width: 100%;
-    height: 150px; /* Imposta un'altezza fissa per l'immagine */
+    height: 150px;
     overflow: hidden;
     border-radius: 8px 8px 0 0;
     margin-bottom: 10px;
@@ -21,37 +29,83 @@
       height: 100%;
       object-fit: cover;
       transition: transform 0.3s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.9;
+      transition: opacity 0.2s ease-out;
     }
 
     &:hover img {
-      transform: scale(1.1); /* Anima l'immagine al passaggio del mouse */
+      transform: scale(1.1);
+      transition: opacity 0.3s ease-in;
+      opacity: 1;
     }
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+  }
+
+  h2 {
+    position: absolute;
+    inset: auto auto 30px 30px;
+    margin: 0;
+    transition: inset 0.3s 0.3s ease-out;
+    font-family: "Anton", sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
   }
 
   h3 {
     margin-top: 0;
-    font-size: 1.2em;
+  }
+
+  p,
+  a {
+    position: absolute;
+    opacity: 0;
+    max-width: 80%;
+    transition: opacity 0.3s ease-out;
   }
 
   p {
-    color: #666;
+    color: var(--body_color);
     font-size: 0.9em;
+    inset: auto auto 80px 30px;
   }
 
   a {
     display: inline-block;
     margin-top: 10px;
-    color: #007bff;
+    color: inherit;
     text-decoration: none;
     border: 1px solid #007bff;
     padding: 5px 10px;
     border-radius: 4px;
-    font-size: 0.9em;
     transition: background 0.3s ease, color 0.3s ease;
+    inset: auto auto 40px 30px;
 
     &:hover {
       background: #007bff;
-      color: #fff;
+      color: var(--body_color);
     }
   }
+
+  &:hover h2 {
+    inset: auto auto 220px 30px;
+    transition: inset 0.3s ease-out;
+  }
+
+  &:hover p,
+  &:hover a {
+    opacity: 1;
+    transition: opacity 0.5s 0.1s ease-in;
+  }
+}
+
+.material-symbols-outlined {
+  vertical-align: middle;
 }

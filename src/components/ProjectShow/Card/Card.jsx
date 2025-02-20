@@ -3,14 +3,20 @@ import "./card.scss";
 
 const Card = forwardRef(({ title, description, link, image }, ref) => (
   <div className="card" ref={ref}>
-    <div className="card-image">
-      <img src={image} alt={title} />
+    <img src={image} alt={title} />
+    <div className="card-content">
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="button"
+      >
+        View Project
+        <span className="material-symbols-outlined">arrow_right_alt</span>
+      </a>
     </div>
-    <h3>{title}</h3>
-    <p>{description}</p>
-    <a href={link} target="_blank" rel="noopener noreferrer">
-      View Project
-    </a>
   </div>
 ));
 
