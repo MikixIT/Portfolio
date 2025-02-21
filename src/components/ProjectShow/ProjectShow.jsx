@@ -80,12 +80,6 @@ function ProjectShow() {
             link: "#",
             image: previewImage,
           },
-          {
-            title: "Project 5",
-            description: "Description 5",
-            link: "#",
-            image: previewImage,
-          },
         ].map((project, index) => (
           <Card
             key={index}
