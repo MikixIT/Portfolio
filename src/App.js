@@ -1,15 +1,51 @@
-// import { useRef } from "react";
 import "./App.scss";
 import ContactButton from "./components/ContactButton/ContactButton";
 import Header from "./components/Header/Header";
-// import ProjectShow from "./components/ProjectShow/ProjectShow";
 import DarkMode from "./components/DarkMode/DarkMode";
 import { Typewriter } from "react-simple-typewriter";
 import Intro from "./components/Intro/Intro";
 import ProjectShow from "./components/ProjectShow/ProjectShow";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
 
-// const projectShowRef = useRef(null);
+gsap.registerPlugin(ScrollTrigger);
+
 function App() {
+  useEffect(() => {
+    gsap.from("h1", {
+      duration: 1,
+      y: 50,
+      opacity: 0,
+      ease: "power4.out",
+      delay: 0.5,
+    });
+    gsap.to("h1", {
+      duration: 1,
+      y: 0,
+      opacity: 1,
+      ease: "power4.out",
+      delay: 0.5,
+    });
+
+    // Animazione per il Typewriter
+    gsap.from("#type-writer", {
+      duration: 1,
+      y: 50,
+      opacity: 1,
+      ease: "power4.out",
+      delay: 1,
+    });
+
+    gsap.to("#type-writer", {
+      duration: 1,
+      y: 0,
+      opacity: 1,
+      ease: "power4.out",
+      delay: 1.5,
+    });
+  }, []);
+
   return (
     <>
       <Header />
@@ -40,11 +76,13 @@ function App() {
             />
           </span>{" "}
         </h1>
-        <ContactButton />
+        <div className="contact-button">
+          <ContactButton />
+        </div>
       </section>
-      {/* <section>
+      <section className="main-content">
         <ProjectShow />
-      </section> */}
+      </section>
     </>
   );
 }

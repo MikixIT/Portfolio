@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 import "./header.scss";
 import "boxicons";
 import "animate.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
+
   useEffect(() => {
     const body = document.body;
     const observer = new MutationObserver(() => {
@@ -18,10 +23,48 @@ function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    const showAnim = gsap
+      .fromTo(".header-wrap", { xPercent: 0 }, { xPercent: 200, duration: 1.5 })
+      .pause();
+
+    ScrollTrigger.create({
+      trigger: ".header-wrap",
+      start: "top top",
+      end: "max",
+      scrub: 9,
+      onUpdate: (self) => {
+        if (self.direction === 1) {
+          // Scrolling down
+          showAnim.duration(19.5).play();
+        } else {
+          // Scrolling up
+          showAnim.duration(8.2).reverse();
+        }
+      },
+    });
+  }, []);
+
+  useEffect(() => {
+    // Animazione per l'intestazione
+    gsap.from(".header-wrap", {
+      duration: 1,
+      y: 50,
+      opacity: 1,
+      ease: "power4.out",
+    });
+    gsap.to(".header-wrap", {
+      duration: 1,
+      y: 0,
+      opacity: 1,
+      ease: "power4.out",
+    });
+  }, []);
+
   return (
     <div className="header-wrap">
-      <div className="top-description animate__animated animate__tada animate__delay-5s animate__repeat-1	5">
-        <p>
+      <div className="top-description">
+        <p className="animate__animated animate__tada animate__delay-5s">
           Github{" "}
           <a href="https://www.github.com/mikixit">
             <box-icon
@@ -35,7 +78,7 @@ function Header() {
           </a>{" "}
         </p>
 
-        <p>
+        <p className="animate__animated animate__tada animate__delay-2s">
           Linkedin{" "}
           <a href="https://www.linkedin.com/in/michaeltorresdev/">
             <box-icon

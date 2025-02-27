@@ -19,6 +19,7 @@
 body {
   background-color: var(--body_bg);
   color: var(--body_color);
+  transition: background-color 9.5s ease, color 0.5s ease;
 }
 
 .main-container {
