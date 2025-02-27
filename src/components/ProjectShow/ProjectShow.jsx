@@ -3,7 +3,10 @@ import Card from "./Card/Card";
 import "./projectShow.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import previewImage from "../../assets/Preview.png";
+import prevPokeFilter from "../../assets/pokefilter-preview.png";
+import prevMETEO from "../../assets/meteo-preview.png";
+import prevApple from "../../assets/applelike-preview.png";
+import prevQuiz from "../../assets/quizapp-preview.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -57,28 +60,32 @@ function ProjectShow() {
       <div className="cards">
         {[
           {
-            title: "Project 1",
-            description: "Description 1",
-            link: "#",
-            image: previewImage,
+            title: "PokèFilter",
+            description:
+              "Catch 'em all... filtered! Find the Pokémon you're looking for in a flash. Search and filter with RETRO-Style.",
+            link: "https://mikixit.github.io/pokefilter-db/",
+            image: prevPokeFilter,
           },
           {
-            title: "Project 2",
-            description: "Description 2",
-            link: "#",
-            image: previewImage,
+            title: "MET3OWeather",
+            description:
+              "Real-time weather, reliable data. Discover the climate anywhere, with a click.",
+            link: "https://mikixit.github.io/MET3OWeather/",
+            image: prevMETEO,
           },
           {
-            title: "Project 3",
-            description: "Description 3",
-            link: "#",
-            image: previewImage,
+            title: "Apple-Like",
+            description:
+              "Minimalism meets power. An Apple-style web experience, without compromise.",
+            link: "https://mikixit.github.io/apple-site-like/",
+            image: prevApple,
           },
           {
-            title: "Project 4",
-            description: "Description 4",
-            link: "#",
-            image: previewImage,
+            title: "Quiz-App",
+            description:
+              "Easy quiz, maximum fun. Test your knowledge with a smile.",
+            link: "https://mikixit.github.io/Quiz-App/",
+            image: prevQuiz,
           },
         ].map((project, index) => (
           <Card
