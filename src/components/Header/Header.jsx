@@ -46,7 +46,6 @@ function Header() {
   }, []);
 
   useEffect(() => {
-    // Animazione per l'intestazione
     gsap.from(".header-wrap", {
       duration: 1,
       y: 50,

@@ -11,17 +11,25 @@ function Contact() {
   const h2Ref = useRef(null);
 
   useEffect(() => {
-    gsap.from(h2Ref.current, {
-      y: 30,
-      opacity: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: h2Ref.current,
-        start: "top 10%",
-        end: "top 50%",
-        scrub: true,
+    gsap.fromTo(
+      h2Ref.current,
+      {
+        y: 100,
+        opacity: 0,
       },
-    });
+      {
+        y: 0,
+        opacity: 1,
+        duration: 2.5,
+        scrollTrigger: {
+          trigger: h2Ref.current,
+          start: "top 75%",
+          end: "top 50%",
+          scrub: true,
+          markers: true,
+        },
+      }
+    );
   }, []);
 
   return (
