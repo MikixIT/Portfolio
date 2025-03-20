@@ -26,7 +26,6 @@ function Contact() {
           start: "top 75%",
           end: "top 50%",
           scrub: true,
-          markers: true,
         },
       }
     );

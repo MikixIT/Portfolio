@@ -1,15 +1,15 @@
 .contact-section {
-  padding: 40px;
+  padding: 10px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   h2 {
     text-align: center;
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin-top: 35px;
+    margin-bottom: 290px;
     font-size: clamp(80px, 11vw, 11vw);
     background-color: transparent;
     text-transform: uppercase;
