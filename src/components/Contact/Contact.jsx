@@ -23,9 +23,10 @@ function Contact() {
         duration: 2.5,
         scrollTrigger: {
           trigger: h2Ref.current,
-          start: "top 75%",
+          start: "top 90%",
           end: "top 50%",
           scrub: true,
+          markers: true,
         },
       }
     );
