@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./contactForm.scss"; // Assicurati di creare un file CSS per lo stile
-
+import "boxicons";
 function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
@@ -24,14 +24,17 @@ function ContactForm() {
 
   return (
     <div className="contact-form-container">
+      {/* Left SIDE */}
+
       <div className="form-left">
         <h3>Fill the form. It's easy.</h3>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input
+              className="input-form"
               type="text"
               name="Name"
-              placeholder="Your name"
+              placeholder="Your Name"
               value={formData.Name}
               onChange={handleChange}
               required
@@ -39,9 +42,10 @@ function ContactForm() {
           </div>
           <div className="form-group">
             <input
+              className="input-form"
               type="email"
               name="email"
-              placeholder="Your email"
+              placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
               required
@@ -49,8 +53,9 @@ function ContactForm() {
           </div>
           <div className="form-group">
             <textarea
+              className="input-form message-area"
               name="message"
-              placeholder="Write your message"
+              placeholder="Message"
               value={formData.message}
               onChange={handleChange}
               required
@@ -61,15 +66,36 @@ function ContactForm() {
           </button>
         </form>
       </div>
+
+      {/* Right SIDE */}
+
       <div className="form-right">
-        <h3>Let's talk about everything.</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil
-          deleniti itaque similique magni. Magni, laboriosam perferendis maxime!
-        </p>
+        <h3>Get in touch</h3>
+        <p>I'm open to discussing new projects and ideas.</p>
         <a href="#" className="read-more">
-          Read more
+          You can find me also here.
         </a>
+        <div className="social-icons">
+          <a
+            href="https://www.linkedin.com/in/michaeltorresdev/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <box-icon
+              name="linkedin-square"
+              type="logo"
+              color="#000"
+              size="3em"
+            ></box-icon>
+          </a>
+          <a
+            href="https://github.com/MikixIT/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <box-icon type="logo" name="github" size="3em"></box-icon>
+          </a>
+        </div>
       </div>
     </div>
   );

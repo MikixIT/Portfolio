@@ -1,0 +1,18 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #444444;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  font-family: Times;
+  align-items: center;
+  transform: translateY(100%);
+  transition: transform 0.2s ease-in-out;
+  bottom: 0;
+  left: 0;
+  letter-spacing: "1px";
+}
