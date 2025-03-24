@@ -13,29 +13,28 @@ function Footer() {
 
     // GSAP ScrollTrigger per animare il footer
     ScrollTrigger.create({
-      trigger: document.documentElement, // Trigger sull'intero documento
-      start: "bottom-=100 bottom", // Quando il fondo della pagina è visibile
-      end: "bottom bottom", // Fine del trigger
+      trigger: document.documentElement,
+      start: "bottom-=100 bottom",
+      end: "bottom bottom",
       onEnter: () => {
         gsap.to(footer, {
-          y: "0%", // Mostra il footer
+          y: "0%",
           duration: 1,
           ease: "power2.out",
         });
       },
       onLeaveBack: () => {
         gsap.to(footer, {
-          y: "100%", // Nasconde il footer
+          y: "100%",
           duration: 1,
           ease: "power2.in",
         });
       },
       onUpdate: (self) => {
-        // Controllo esplicito per chiudere il footer durante uno scroll veloce
         if (self.direction === -1 && self.progress === 0) {
           gsap.to(footer, {
-            y: "100%", // Nasconde il footer
-            duration: 0.5,
+            y: "100%",
+            duration: 0.2,
             ease: "power2.in",
           });
         }
@@ -44,25 +43,12 @@ function Footer() {
   }, []);
 
   return (
-    <div
-      ref={footerRef}
-      style={{
-        position: "fixed",
-        bottom: 0,
-        left: 0,
-        width: "100%",
-        height: "100px",
-        backgroundColor: "#333",
-        color: "#fff",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        transform: "translateY(100%)", // Footer inizialmente nascosto
-        letterSpacing: "5px",
-      }}
-    >
-      Dev with ⚛️ by Michael Torres
-    </div>
+    <footer ref={footerRef}>
+      Dev with <a href="https://github.com/MikixIT/Portfolio">⚛️</a> by{" "}
+      <a href="https://www.linkedin.com/in/michaeltorresdeveloper/">
+        Michael Torres
+      </a>
+    </footer>
   );
 }
 
