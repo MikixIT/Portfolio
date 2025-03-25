@@ -1,25 +1,55 @@
 import React, { useState } from "react";
 import "./contactForm.scss"; // Assicurati di creare un file CSS per lo stile
 import "boxicons";
+import Swal from "sweetalert2";
+
 function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+    formData.append("access_key", "3943c3b4-7425-4dcf-99d5-39eb387913cd");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Gestisci l'invio del form
-    console.log(formData);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      }).then((res) => res.json());
+      // const res = { success: false };
+
+      if (res.success) {
+        Swal.fire({
+          title: "✅ Done!",
+          text: "I will reply to you as soon as possible!",
+          width: "30em",
+          color: "#606060",
+          confirmButtonColor: "green",
+          confirmButtonText: "Cool!",
+          allowEscapeKey: true,
+        });
+        console.log("Email sent", res);
+      } else {
+        throw new Error("Submission failed");
+      }
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+      Swal.fire({
+        title: "❌ Error!",
+        text: "Something went wrong. Please try again later. I'm Sorry >:(",
+        toast: true,
+        width: "30em",
+        confirmButtonColor: "#d33",
+        confirmButtonText: "Okay  :(",
+        allowEscapeKey: true,
+      });
+    }
   };
 
   return (
@@ -28,15 +58,13 @@ function ContactForm() {
 
       <div className="form-left">
         <h3>Fill the form. It's easy.</h3>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={onSubmit}>
           <div className="form-group">
             <input
               className="input-form"
               type="text"
-              name="Name"
+              name="name"
               placeholder="Your Name"
-              value={formData.Name}
-              onChange={handleChange}
               required
             />
           </div>
@@ -46,8 +74,6 @@ function ContactForm() {
               type="email"
               name="email"
               placeholder="Your Email"
-              value={formData.email}
-              onChange={handleChange}
               required
             />
           </div>
@@ -56,8 +82,6 @@ function ContactForm() {
               className="input-form message-area"
               name="message"
               placeholder="Message"
-              value={formData.message}
-              onChange={handleChange}
               required
             />
           </div>
