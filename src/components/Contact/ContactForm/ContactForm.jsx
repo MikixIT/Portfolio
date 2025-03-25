@@ -1,9 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./contactForm.scss"; // Assicurati di creare un file CSS per lo stile
 import "boxicons";
 import Swal from "sweetalert2";
 
 function ContactForm() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    const body = document.body;
+
+    const updateDarkMode = () => {
+      setIsDarkMode(body.classList.contains("dark-mode"));
+    };
+
+    const observer = new MutationObserver(updateDarkMode);
+
+    observer.observe(body, { attributes: true, attributeFilter: ["class"] });
+
+    updateDarkMode();
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -94,7 +114,7 @@ function ContactForm() {
       {/* Right SIDE */}
 
       <div className="form-right">
-        <h3>Get in touch</h3>
+        <h3>Get in touch.</h3>
         <p>I'm open to discussing new projects and ideas.</p>
         <a href="#" className="read-more">
           You can find me also here.
@@ -108,8 +128,8 @@ function ContactForm() {
             <box-icon
               name="linkedin-square"
               type="logo"
-              color="#000"
               size="3em"
+              color={isDarkMode ? "white" : "black"} // Cambia colore in base alla modalità
             ></box-icon>
           </a>
           <a
@@ -117,7 +137,12 @@ function ContactForm() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <box-icon type="logo" name="github" size="3em"></box-icon>
+            <box-icon
+              type="logo"
+              name="github"
+              size="3em"
+              color={isDarkMode ? "white" : "black"} // Cambia colore in base alla modalità
+            ></box-icon>
           </a>
         </div>
       </div>

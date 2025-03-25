@@ -67,7 +67,7 @@
 }
 
 .input-form {
-  border: solid 2px black;
+  border: solid 2px var(--body_color);
   border-radius: 25px;
   font-size: 1rem;
   padding: 12px 16px;
@@ -79,7 +79,7 @@
 }
 
 .submit-button {
-  border: solid 2px black;
+  border: solid 2px var(--body_color);
   border-radius: 25px;
   padding: 12px 20px;
   font-size: 1rem;
@@ -93,6 +93,7 @@
 
 button {
   justify-content: center;
+  color: var(--body_color);
 }
 
 .submit-button:hover {
