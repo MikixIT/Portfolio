@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Portfolio MichaelTorresDev   
+![](public/apple-touch-icon.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my portfolio! 
+**Hi, this is Michael! 👨🏻‍💻**
+This space is a reflection of my passion for **web development, software and graphic design.**    
 
-## Available Scripts
+I am dedicated to creating innovative and impactful projects that showcase my skills and creativity. 🔥
 
-In the project directory, you can run:
+***Click Here ⬇️***
+[MichaelTorresDEV.dev](https://michaeltorresdev.dev/)
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#  What can i find here?  👀
+## My Creations  🖌️
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In this section, you'll find a collection of **my projects**. Each project represents a unique challenge and an opportunity to apply my knowledge and skills.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## How to Reach me 🗣️
+I'm always eager to connect with potential collaborators and employers. If you're interested in discussing job opportunities or exploring how my skills can benefit your team, **here are several ways to get in touch in MY PORTFOLIO** :
 
-### `yarn build`
+-   **Contact Form:** For your convenience, I've created a dedicated contact form on my portfolio website. This is the quickest way to send me a message directly.
+-   **Email:** You can also reach me via email at michaeltorresdeveloper@gmail.com. I strive to respond promptly to all inquiries.
+-   **Download My CV:** For a comprehensive overview of my qualifications and experience, please feel free to download my CV in my Portfolio.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
