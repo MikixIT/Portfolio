@@ -14,8 +14,9 @@ function Footer() {
     // GSAP ScrollTrigger per animare il footer
     ScrollTrigger.create({
       trigger: document.documentElement,
-      start: "bottom-=100 bottom",
+      start: "bottom bottom",
       end: "bottom bottom",
+      markers: true,
       onEnter: () => {
         gsap.to(footer, {
           y: "0%",
