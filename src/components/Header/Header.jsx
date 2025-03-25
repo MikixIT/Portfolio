@@ -25,7 +25,7 @@ function Header() {
 
   useEffect(() => {
     const showAnim = gsap
-      .fromTo(".header-wrap", { xPercent: 0 }, { xPercent: 30, duration: 0.1 })
+      .fromTo(".header-wrap", { xPercent: 0 }, { xPercent: 45, duration: 0.1 })
       .pause();
 
     ScrollTrigger.create({
