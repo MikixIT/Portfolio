@@ -89,6 +89,18 @@ function ContactButton() {
             >
               🇬🇧 English CV
             </div>
+            <div
+              className="dropdown-item"
+              onClick={() => {
+                const contactForm = document.getElementById("contact-form");
+                if (contactForm) {
+                  contactForm.scrollIntoView({ behavior: "smooth" });
+                }
+                setIsDropdownOpen(false);
+              }}
+            >
+              CONTACT ME 🗣️
+            </div>
           </div>
         ) : (
           <>

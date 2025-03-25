@@ -7,6 +7,7 @@ import prevPokeFilter from "../../assets/pokefilter-preview.png";
 import prevMETEO from "../../assets/meteo-preview.png";
 import prevApple from "../../assets/applelike-preview.png";
 import prevQuiz from "../../assets/quizapp-preview.png";
+import prevVanGogh from "../../assets/vgd-preview.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,6 +66,13 @@ function ProjectShow() {
               "Catch 'em all... filtered! Find the Pokémon you're looking for in a flash. Search and filter with RETRO-Style.",
             link: "https://mikixit.github.io/pokefilter-db/",
             image: prevPokeFilter,
+          },
+          {
+            title: "Van Gogh Digital",
+            description:
+              "Watch Van Gogh's paintings come to life with Next.js and GSAP! ",
+            link: "https://van-gogh-digital-sknu.vercel.app/",
+            image: prevVanGogh,
           },
           {
             title: "MET3OWeather",

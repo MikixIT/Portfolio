@@ -1,0 +1,19 @@
+.contact-section {
+  padding: 10px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  h2 {
+    text-align: center;
+    margin-top: 35px;
+    font-size: clamp(60px, 12vw, 12vw);
+    background-color: transparent;
+    text-transform: uppercase;
+    font-family: "Anton", sans-serif;
+    align-items: center;
+    cursor: default;
+  }
+}

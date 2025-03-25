@@ -8,6 +8,8 @@ import ProjectShow from "./components/ProjectShow/ProjectShow";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect } from "react";
+import Contact from "./components/Contact/Contact";
+import Footer from "./components/Footer/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,6 +84,12 @@ function App() {
       </section>
       <section className="main-content">
         <ProjectShow />
+      </section>
+      <section className="contact-section">
+        <Contact />
+      </section>
+      <section>
+        <Footer />
       </section>
     </>
   );

@@ -22,15 +22,15 @@
   justify-content: center;
   vertical-align: middle;
   align-items: center;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   transition: 0.7s ease-in-out;
   cursor: default;
   background: transparent;
 
   font: {
-    weight: 300;
     size: 18px;
     background: transparent;
+    family: Arial;
   }
 
   p {
