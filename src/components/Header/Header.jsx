@@ -25,21 +25,21 @@ function Header() {
 
   useEffect(() => {
     const showAnim = gsap
-      .fromTo(".header-wrap", { xPercent: 0 }, { xPercent: 50, duration: 0.1 })
+      .fromTo(".header-wrap", { xPercent: 0 }, { xPercent: 30, duration: 0.1 })
       .pause();
 
     ScrollTrigger.create({
       trigger: ".header-wrap",
       start: "top top",
       end: "max",
-      scrub: 9,
+      scrub: 1,
       onUpdate: (self) => {
         if (self.direction === 1) {
           // Scrolling down
-          showAnim.duration(12.5).play();
+          showAnim.duration(1.5).play();
         } else {
           // Scrolling up
-          showAnim.duration(8.2).reverse();
+          showAnim.duration(1.2).reverse();
         }
       },
     });
@@ -48,8 +48,9 @@ function Header() {
   useEffect(() => {
     gsap.from(".header-wrap", {
       duration: 1,
-      y: 50,
+      y: 20,
       opacity: 1,
+      scrub: 1,
       ease: "power4.out",
     });
     gsap.to(".header-wrap", {
