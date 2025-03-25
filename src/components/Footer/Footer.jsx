@@ -16,6 +16,8 @@ function Footer() {
       trigger: document.documentElement,
       start: "bottom bottom",
       end: "bottom bottom",
+      markers: true,
+
       onEnter: () => {
         gsap.to(footer, {
           y: "0%",

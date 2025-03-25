@@ -73,7 +73,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="contact-form-container">
+    <div id="contact-form" className="contact-form-container">
       {/* Left SIDE */}
 
       <div className="form-left">
