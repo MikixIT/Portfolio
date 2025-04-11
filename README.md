@@ -12,7 +12,7 @@ I am dedicated to creating innovative and impactful projects that showcase my sk
 [MichaelTorresDEV.dev](https://michaeltorresdev.dev/)
 
 
-#  What can i find here?  👀
+#  What can I find here? 👀
 
 <br> <br>
 ## My Creations  🖌️
