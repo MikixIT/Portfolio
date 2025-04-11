@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import prevPokeFilter from "../../assets/pokefilter-preview.png";
 import prevMETEO from "../../assets/meteo-preview.png";
 import prevApple from "../../assets/applelike-preview.png";
-import prevQuiz from "../../assets/quizapp-preview.png";
+import prevPokeQuiz from "../../assets/quiz-pokeapp-preview.png";
 import prevVanGogh from "../../assets/vgd-preview.png";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -82,18 +82,18 @@ function ProjectShow() {
             image: prevMETEO,
           },
           {
+            title: "PokèQuiz",
+            description:
+              "Look at the image, pick the right name, and prove your Poké-knowledge!",
+            link: "https://mikixit.github.io/poke-quiz/",
+            image: prevPokeQuiz,
+          },
+          {
             title: "Apple-Like",
             description:
               "Minimalism meets power. An Apple-style web experience, without compromise.",
             link: "https://mikixit.github.io/apple-site-like/",
             image: prevApple,
-          },
-          {
-            title: "Quiz-App",
-            description:
-              "Easy quiz, maximum fun. Test your knowledge with a smile.",
-            link: "https://mikixit.github.io/Quiz-App/",
-            image: prevQuiz,
           },
         ].map((project, index) => (
           <Card
