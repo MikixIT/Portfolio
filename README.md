@@ -1,7 +1,7 @@
 # Portfolio MichaelTorresDev   
 ![](public/apple-touch-icon.png)
 
-Welcome to my portfolio!  <br> <br>
+## Welcome to my portfolio!  <br> <br>
 **Hi, this is Michael! 👨🏻‍💻** <br>
 This space is a reflection of my passion for **web development, software and graphic design.**    
 
