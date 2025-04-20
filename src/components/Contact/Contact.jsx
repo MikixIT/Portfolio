@@ -14,7 +14,7 @@ function Contact() {
     gsap.fromTo(
       h2Ref.current,
       {
-        y: 100,
+        y: 150,
         opacity: 0,
       },
       {

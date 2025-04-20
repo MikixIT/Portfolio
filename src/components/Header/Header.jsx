@@ -91,6 +91,18 @@ function Header() {
             ></box-icon>{" "}
           </a>{" "}
         </p>
+        <p className="animate__animated animate__tada animate__delay-7s">
+          My CV{" "}
+          <a href="https://github.com/MikixIT/Portfolio/raw/refs/heads/portfolio/CV/MichaelTorres-CV.pdf">
+            <box-icon
+              name="download"
+              size="sm"
+              border="square"
+              style={{ marginLeft: 5 }}
+              color={isDarkMode ? "white" : "black"}
+            ></box-icon>{" "}
+          </a>{" "}
+        </p>
       </div>
     </div>
   );
