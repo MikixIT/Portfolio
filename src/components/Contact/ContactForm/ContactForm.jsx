@@ -3,6 +3,7 @@ import "./contactForm.scss"; // Assicurati di creare un file CSS per lo stile
 import "boxicons";
 import Swal from "sweetalert2";
 import gsap from "gsap";
+import BookCall from "../../BookCall/BookCall";
 
 function ContactForm() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -138,11 +139,6 @@ function ContactForm() {
       {/* Right SIDE */}
 
       <div className="form-right">
-        <h3>Get in touch.</h3>
-        <p>I'm open to discussing new projects and ideas.</p>
-        <a href="https://www.youtube.com/@MikixIT" className="read-more">
-          You can find me also here.
-        </a>
         <div className="social-icons">
           <a
             href="https://www.linkedin.com/in/michaeltorresdev/"
@@ -169,6 +165,7 @@ function ContactForm() {
             ></box-icon>
           </a>
         </div>
+        <BookCall />
       </div>
     </div>
   );
