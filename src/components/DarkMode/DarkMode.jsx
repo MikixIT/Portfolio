@@ -11,8 +11,11 @@ function DarkMode() {
   const buttonRef = useRef(null);
 
   const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle("dark-mode", isDarkMode);
+    setIsDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      document.body.classList.toggle("dark-mode", newMode);
+      return newMode;
+    });
   };
 
   useEffect(() => {
@@ -64,7 +67,7 @@ function DarkMode() {
         <box-icon
           type="solid"
           name="bulb"
-          color={isDarkMode ? "white" : "dark"}
+          color={isDarkMode ? "white" : "black"}
           style={{ background: "transparent" }}
         ></box-icon>
       </button>
