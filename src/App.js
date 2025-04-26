@@ -15,6 +15,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useEffect(() => {
+    document.body.classList.add("dark-mode");
+  });
+
+  useEffect(() => {
     gsap.from("h1", {
       duration: 1,
       y: 50,
