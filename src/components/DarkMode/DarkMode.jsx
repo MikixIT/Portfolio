@@ -64,7 +64,7 @@ function DarkMode() {
         <box-icon
           type="solid"
           name="bulb"
-          color={isDarkMode ? "black" : "white"}
+          color={isDarkMode ? "white" : "dark"}
           style={{ background: "transparent" }}
         ></box-icon>
       </button>
