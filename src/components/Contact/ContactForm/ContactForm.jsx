@@ -165,7 +165,6 @@ function ContactForm() {
             ></box-icon>
           </a>
         </div>
-        <BookCall />
       </div>
     </div>
   );
