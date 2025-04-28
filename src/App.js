@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Modal from "./components/Modal/Modal";
+import BookCall from "./components/BookCall/BookCall";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -22,11 +23,9 @@ function App() {
   const [modalStaus, setModalStatus] = useState(false);
   const openModal = () => {
     setModalStatus(true);
-    console.log("open");
   };
   const closeModal = () => {
     setModalStatus(false);
-    console.log("close");
   };
 
   useEffect(() => {
@@ -102,7 +101,11 @@ function App() {
       </section>
       <section className="contact-section">
         <Contact />
-        <Modal isOpenModal={modalStaus} closeModal={closeModal} />
+        <Modal
+          isOpenModal={modalStaus}
+          closeModal={closeModal}
+          contentModal={<BookCall />}
+        />
       </section>
       <section>
         <Footer />

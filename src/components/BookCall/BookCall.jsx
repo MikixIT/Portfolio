@@ -11,10 +11,10 @@ const BookCall = () => {
 
   return (
     <div className="book-call">
-      <h2>Let’s talk – book a short intro call 📅</h2>
+      <h2>Let’s talk – book a short intro call </h2>
       <div
         className="calendly-inline-widget"
-        data-url="https://calendly.com/tuo-username/30min"
+        data-url="https://calendly.com/michaeltorresdeveloper/30min"
         style={{ minWidth: "320px", height: "630px" }}
       ></div>
     </div>
