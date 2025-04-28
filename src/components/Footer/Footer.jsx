@@ -11,38 +11,35 @@ function Footer() {
   useEffect(() => {
     const footer = footerRef.current;
 
-    // GSAP ScrollTrigger per animare il footer
     ScrollTrigger.create({
       trigger: document.documentElement,
       start: "bottom bottom",
       end: "bottom bottom",
-
       onEnter: () => {
         gsap.to(footer, {
           y: "0%",
-          duration: 1,
-          ease: "power2.out",
+          duration: 0.1, // più rapido
+          ease: "power4.out", // più secco
         });
       },
       onLeaveBack: () => {
         gsap.to(footer, {
-          y: "100%",
-          duration: 1,
-          ease: "power2.in",
+          y: "150%", // esce ancora di più
+          duration: 0.1, // più rapido
+          ease: "back.in(2)", // spinto verso il basso
         });
       },
       onUpdate: (self) => {
         if (self.direction === -1 && self.progress === 0) {
           gsap.to(footer, {
-            y: "100%",
-            duration: 0.2,
-            ease: "power2.in",
+            y: "150%",
+            duration: 0.1,
+            ease: "back.in(2)",
           });
         }
       },
     });
   }, []);
-
   return (
     <footer ref={footerRef}>
       Dev with <a href="https://github.com/MikixIT/Portfolio">⚛️</a> by{" "}

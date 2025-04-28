@@ -3,7 +3,7 @@ import "./contactButton.scss";
 import "boxicons";
 import { gsap } from "gsap";
 
-function ContactButton() {
+function ContactButton({ calendarButtonClicked }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const buttonRef = useRef(null);
@@ -101,12 +101,7 @@ function ContactButton() {
               📩
             </div>
 
-            <div
-              className="dropdown-item"
-              onClick={() =>
-                handleOptionClick("https://calendly.com/michaeltorresdeveloper")
-              }
-            >
+            <div className="dropdown-item" onClick={calendarButtonClicked}>
               📆
             </div>
           </div>
