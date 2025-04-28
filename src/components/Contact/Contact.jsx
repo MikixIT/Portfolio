@@ -7,7 +7,7 @@ import ContactForm from "./ContactForm/ContactForm";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function Contact() {
+function Contact({ buttonContactClicked }) {
   const h2Ref = useRef(null);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ function Contact() {
   return (
     <div className="contact-section">
       <h2 ref={h2Ref}>Contact Me</h2>
-      <ContactForm />
+      <ContactForm buttonContactClicked={buttonContactClicked} />
     </div>
   );
 }

@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./contactForm.scss"; // Assicurati di creare un file CSS per lo stile
+import "./contactForm.scss"; // Assicurati di avere il CSS giusto
 import "boxicons";
 import Swal from "sweetalert2";
 import gsap from "gsap";
-import BookCall from "../../BookCall/BookCall";
 
-function ContactForm() {
+function ContactForm({ buttonContactClicked }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const formRef = useRef(null);
 
@@ -100,7 +99,6 @@ function ContactForm() {
   return (
     <div id="contact-form" className="contact-form-container" ref={formRef}>
       {/* Left SIDE */}
-
       <div className="form-left">
         <h3>Fill the form. It's easy.</h3>
         <form onSubmit={onSubmit}>
@@ -137,7 +135,6 @@ function ContactForm() {
       </div>
 
       {/* Right SIDE */}
-
       <div className="form-right">
         <div className="social-icons">
           <a
@@ -149,7 +146,7 @@ function ContactForm() {
               name="linkedin-square"
               type="logo"
               size="3em"
-              color={isDarkMode ? "white" : "black"} // Cambia colore in base alla modalità
+              color={isDarkMode ? "white" : "black"}
             ></box-icon>
           </a>
           <a
@@ -161,10 +158,18 @@ function ContactForm() {
               type="logo"
               name="github"
               size="3em"
-              color={isDarkMode ? "white" : "black"} // Cambia colore in base alla modalità
+              color={isDarkMode ? "white" : "black"}
             ></box-icon>
           </a>
         </div>
+        <button onClick={buttonContactClicked} class="contact-button">
+          Let's Talk
+        </button>
+        <p className="description-contact-button">
+          {" "}
+          Want to talk about ideas, tech, or opportunities? Let’s jump on a
+          30-min call!
+        </p>
       </div>
     </div>
   );

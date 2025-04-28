@@ -100,7 +100,7 @@ function App() {
         <ProjectShow />
       </section>
       <section className="contact-section">
-        <Contact />
+        <Contact buttonContactClicked={openModal} />
         <Modal
           isOpenModal={modalStaus}
           closeModal={closeModal}
