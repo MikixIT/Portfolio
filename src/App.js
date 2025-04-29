@@ -1,19 +1,34 @@
 import "./App.scss";
+
 import ContactButton from "./components/ContactButton/ContactButton";
 import Header from "./components/Header/Header";
 import DarkMode from "./components/DarkMode/DarkMode";
 import { Typewriter } from "react-simple-typewriter";
-import Intro from "./components/Intro/Intro";
 import ProjectShow from "./components/ProjectShow/ProjectShow";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import Modal from "./components/Modal/Modal";
+import BookCall from "./components/BookCall/BookCall";
+import mtImg from "./assets/mtImg.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  useEffect(() => {
+    document.body.classList.add("dark-mode");
+  });
+
+  const [modalStaus, setModalStatus] = useState(false);
+  const openModal = () => {
+    setModalStatus(true);
+  };
+  const closeModal = () => {
+    setModalStatus(false);
+  };
+
   useEffect(() => {
     gsap.from("h1", {
       duration: 1,
@@ -78,15 +93,21 @@ function App() {
             />
           </span>{" "}
         </h1>
+
         <div className="contact-button">
-          <ContactButton />
+          <ContactButton calendarButtonClicked={openModal} />
         </div>
       </section>
       <section className="main-content">
         <ProjectShow />
       </section>
       <section className="contact-section">
-        <Contact />
+        <Contact buttonContactClicked={openModal} />
+        <Modal
+          isOpenModal={modalStaus}
+          closeModal={closeModal}
+          contentModal={<BookCall />}
+        />
       </section>
       <section>
         <Footer />

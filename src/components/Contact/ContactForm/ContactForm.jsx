@@ -1,10 +1,33 @@
-import React, { useState, useEffect } from "react";
-import "./contactForm.scss"; // Assicurati di creare un file CSS per lo stile
+import React, { useState, useEffect, useRef } from "react";
+import "./contactForm.scss"; // Assicurati di avere il CSS giusto
 import "boxicons";
 import Swal from "sweetalert2";
+import gsap from "gsap";
 
-function ContactForm() {
+function ContactForm({ buttonContactClicked }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    gsap.fromTo(
+      formRef.current,
+      {
+        y: 100,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 2.5,
+        scrollTrigger: {
+          trigger: formRef.current,
+          start: "top 100%",
+          end: "top 50%",
+          scrub: true,
+        },
+      }
+    );
+  }, []);
 
   useEffect(() => {
     const body = document.body;
@@ -26,6 +49,7 @@ function ContactForm() {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    const form = event.target;
     const formData = new FormData(event.target);
 
     formData.append("access_key", "3943c3b4-7425-4dcf-99d5-39eb387913cd");
@@ -42,7 +66,6 @@ function ContactForm() {
         },
         body: json,
       }).then((res) => res.json());
-      // const res = { success: false };
 
       if (res.success) {
         Swal.fire({
@@ -55,6 +78,7 @@ function ContactForm() {
           allowEscapeKey: true,
         });
         console.log("Email sent", res);
+        form.reset();
       } else {
         throw new Error("Submission failed");
       }
@@ -73,9 +97,8 @@ function ContactForm() {
   };
 
   return (
-    <div id="contact-form" className="contact-form-container">
+    <div id="contact-form" className="contact-form-container" ref={formRef}>
       {/* Left SIDE */}
-
       <div className="form-left">
         <h3>Fill the form. It's easy.</h3>
         <form onSubmit={onSubmit}>
@@ -112,13 +135,7 @@ function ContactForm() {
       </div>
 
       {/* Right SIDE */}
-
       <div className="form-right">
-        <h3>Get in touch.</h3>
-        <p>I'm open to discussing new projects and ideas.</p>
-        <a href="#" className="read-more">
-          You can find me also here.
-        </a>
         <div className="social-icons">
           <a
             href="https://www.linkedin.com/in/michaeltorresdev/"
@@ -129,7 +146,7 @@ function ContactForm() {
               name="linkedin-square"
               type="logo"
               size="3em"
-              color={isDarkMode ? "white" : "black"} // Cambia colore in base alla modalità
+              color={isDarkMode ? "white" : "black"}
             ></box-icon>
           </a>
           <a
@@ -141,10 +158,18 @@ function ContactForm() {
               type="logo"
               name="github"
               size="3em"
-              color={isDarkMode ? "white" : "black"} // Cambia colore in base alla modalità
+              color={isDarkMode ? "white" : "black"}
             ></box-icon>
           </a>
         </div>
+        <button onClick={buttonContactClicked} className="contact-button">
+          Let's Talk
+        </button>
+        <p className="description-contact-button">
+          {" "}
+          Want to talk about ideas, tech, or opportunities? Let’s jump on a
+          30-min call!
+        </p>
       </div>
     </div>
   );

@@ -32,14 +32,13 @@ function Header() {
       trigger: ".header-wrap",
       start: "top top",
       end: "max",
-      scrub: 1,
       onUpdate: (self) => {
         if (self.direction === 1) {
           // Scrolling down
           showAnim.duration(1.5).play();
         } else {
           // Scrolling up
-          showAnim.duration(1.2).reverse();
+          showAnim.duration(0.6).reverse();
         }
       },
     });
@@ -47,14 +46,13 @@ function Header() {
 
   useEffect(() => {
     gsap.from(".header-wrap", {
-      duration: 1,
+      duration: 9,
       y: 20,
       opacity: 1,
-      scrub: 1,
       ease: "power4.out",
     });
     gsap.to(".header-wrap", {
-      duration: 1,
+      duration: 9,
       y: 0,
       opacity: 1,
       ease: "power4.out",
@@ -70,7 +68,6 @@ function Header() {
             <box-icon
               name="link-external"
               size="sm"
-              border="square"
               animation="tada"
               style={{ marginLeft: 5 }}
               color={isDarkMode ? "white" : "black"}
@@ -84,8 +81,18 @@ function Header() {
             <box-icon
               name="link-external"
               size="sm"
-              border="square"
               animation="tada"
+              style={{ marginLeft: 5 }}
+              color={isDarkMode ? "white" : "black"}
+            ></box-icon>{" "}
+          </a>{" "}
+        </p>
+        <p className="animate__animated animate__tada animate__delay-7s">
+          My CV{" "}
+          <a href="https://github.com/MikixIT/Portfolio/raw/refs/heads/portfolio/CV/MichaelTorres-CV.pdf">
+            <box-icon
+              name="download"
+              size="sm"
               style={{ marginLeft: 5 }}
               color={isDarkMode ? "white" : "black"}
             ></box-icon>{" "}

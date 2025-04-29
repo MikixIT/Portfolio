@@ -6,3 +6,8 @@
   box-sizing: border-box;
   background: var(--body_bg);
 }
+html,
+body {
+  background-color: #000;
+  overscroll-behavior: none;
+}

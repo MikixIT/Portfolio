@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./contactButton.scss";
-import "boxicons";
 import { gsap } from "gsap";
 
-function ContactButton() {
+function ContactButton({ calendarButtonClicked }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const buttonRef = useRef(null);
@@ -23,9 +22,11 @@ function ContactButton() {
   }, []);
 
   useEffect(() => {
+    if (!buttonRef.current || !dropdownRef.current) return;
+
     if (isDropdownOpen) {
       gsap.to(buttonRef.current, {
-        width: "300px",
+        width: "200px",
         duration: 0.1,
         ease: "power2.out",
       });
@@ -55,6 +56,25 @@ function ContactButton() {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const handleOptionClick = (url) => {
     window.location.href = url;
     setIsDropdownOpen(false);
@@ -71,26 +91,6 @@ function ContactButton() {
           <div className="button-options" ref={dropdownRef}>
             <div
               className="dropdown-item"
-              onClick={() =>
-                handleOptionClick(
-                  "https://github.com/MikixIT/Portfolio/raw/refs/heads/portfolio/CV/MichaelTorres-Lebenslauf.pdf"
-                )
-              }
-            >
-              🇩🇪 Deutsch CV
-            </div>
-            <div
-              className="dropdown-item"
-              onClick={() =>
-                handleOptionClick(
-                  "https://github.com/MikixIT/Portfolio/raw/refs/heads/portfolio/CV/MichaelTorres-CV.pdf"
-                )
-              }
-            >
-              🇬🇧 English CV
-            </div>
-            <div
-              className="dropdown-item"
               onClick={() => {
                 const contactForm = document.getElementById("contact-form");
                 if (contactForm) {
@@ -99,20 +99,17 @@ function ContactButton() {
                 setIsDropdownOpen(false);
               }}
             >
-              CONTACT ME 🗣️
+              📩
+            </div>
+
+            <div className="dropdown-item" onClick={calendarButtonClicked}>
+              📆
             </div>
           </div>
         ) : (
           <>
             {"  "}
-            My CV
-            <box-icon
-              name="download"
-              size="m"
-              animation="tada"
-              color={isDarkMode ? "white" : "black"}
-              style={{ marginLeft: 8 }}
-            ></box-icon>
+            GET IN TOUCH
           </>
         )}
       </button>
