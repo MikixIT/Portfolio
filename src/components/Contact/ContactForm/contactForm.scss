@@ -76,11 +76,9 @@
     font-size: 1.4em;
     font-family: Anton, sans-serif;
     color: var(--body_color);
-    transition: transform 0.3s ease, color 0.3s ease;
     cursor: default;
 
     &:hover {
-      transform: scale(1.1);
       color: var(--primary_color);
     }
   }
