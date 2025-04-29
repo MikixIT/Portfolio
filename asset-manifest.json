@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.569e38b5.css",
-    "main.js": "/static/js/main.c8cb652a.js",
+    "main.css": "/static/css/main.6e423b9e.css",
+    "main.js": "/static/js/main.731f7adf.js",
     "static/js/453.d499577d.chunk.js": "/static/js/453.d499577d.chunk.js",
     "static/media/meteo-preview.png": "/static/media/meteo-preview.bc717b3c3e457f903fe5.png",
+    "static/media/mtImg.png": "/static/media/mtImg.e51e19bf64103ae5f369.png",
     "static/media/vgd-preview.png": "/static/media/vgd-preview.569f67e7fed7fa3e9013.png",
     "static/media/pokefilter-preview.png": "/static/media/pokefilter-preview.2aade2178ed90b4a18c9.png",
     "static/media/applelike-preview.png": "/static/media/applelike-preview.5614468e1108679cecd7.png",
     "static/media/quiz-pokeapp-preview.png": "/static/media/quiz-pokeapp-preview.ceda0a13a1f42108c771.png",
     "index.html": "/index.html",
-    "main.569e38b5.css.map": "/static/css/main.569e38b5.css.map",
-    "main.c8cb652a.js.map": "/static/js/main.c8cb652a.js.map",
+    "main.6e423b9e.css.map": "/static/css/main.6e423b9e.css.map",
+    "main.731f7adf.js.map": "/static/js/main.731f7adf.js.map",
     "453.d499577d.chunk.js.map": "/static/js/453.d499577d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.569e38b5.css",
-    "static/js/main.c8cb652a.js"
+    "static/css/main.6e423b9e.css",
+    "static/js/main.731f7adf.js"
   ]
 }
