@@ -162,7 +162,7 @@ function ContactForm({ buttonContactClicked }) {
             ></box-icon>
           </a>
         </div>
-        <button onClick={buttonContactClicked} class="contact-button">
+        <button onClick={buttonContactClicked} className="contact-button">
           Let's Talk
         </button>
         <p className="description-contact-button">

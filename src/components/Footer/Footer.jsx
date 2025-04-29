@@ -18,15 +18,15 @@ function Footer() {
       onEnter: () => {
         gsap.to(footer, {
           y: "0%",
-          duration: 0.1, // più rapido
-          ease: "power4.out", // più secco
+          duration: 0.1,
+          ease: "power4.out",
         });
       },
       onLeaveBack: () => {
         gsap.to(footer, {
-          y: "150%", // esce ancora di più
-          duration: 0.1, // più rapido
-          ease: "back.in(2)", // spinto verso il basso
+          y: "150%",
+          duration: 0.1,
+          ease: "power1.in",
         });
       },
       onUpdate: (self) => {
@@ -34,7 +34,7 @@ function Footer() {
           gsap.to(footer, {
             y: "150%",
             duration: 0.1,
-            ease: "back.in(2)",
+            ease: "bounce.out",
           });
         }
       },

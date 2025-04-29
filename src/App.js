@@ -12,6 +12,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Modal from "./components/Modal/Modal";
 import BookCall from "./components/BookCall/BookCall";
+import mtImg from "./assets/mtImg.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -92,6 +93,7 @@ function App() {
             />
           </span>{" "}
         </h1>
+
         <div className="contact-button">
           <ContactButton calendarButtonClicked={openModal} />
         </div>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./contactButton.scss";
-import "boxicons";
 import { gsap } from "gsap";
 
 function ContactButton({ calendarButtonClicked }) {
@@ -23,6 +22,8 @@ function ContactButton({ calendarButtonClicked }) {
   }, []);
 
   useEffect(() => {
+    if (!buttonRef.current || !dropdownRef.current) return;
+
     if (isDropdownOpen) {
       gsap.to(buttonRef.current, {
         width: "200px",
