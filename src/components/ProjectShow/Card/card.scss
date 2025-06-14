@@ -14,8 +14,8 @@ $color-primary-white: rgb(240, 240, 240);
   overflow: hidden;
   cursor: pointer;
   position: relative;
-  color: $color-primary-white;
   font-family: "Anton", sans-serif;
+  filter: contrast(1.1) brightness(1.15) grayscale(0.05);
 
   .card-image {
     width: 100%;
@@ -40,6 +40,7 @@ $color-primary-white: rgb(240, 240, 240);
   &:hover .card-image img {
     transform: scale(1.1);
     opacity: 1;
+    filter: blur(2px);
   }
 
   .card-content {
@@ -59,7 +60,7 @@ $color-primary-white: rgb(240, 240, 240);
     text-transform: uppercase;
     text-shadow: -1px -1px 0 var(--body_bg), 1px -1px 0 var(--body_bg),
       -1px 1px 0 var(--body_bg), 1px 1px 0 var(--body_bg);
-    font-size: 2.5rem;
+    font-size: 2rem;
     opacity: 1;
     color: var(--body_color);
     background: transparent;
@@ -106,7 +107,7 @@ $color-primary-white: rgb(240, 240, 240);
   }
 
   &:hover .title-card {
-    transform: translateY(-400px);
+    transform: translateY(-450px);
   }
 
   &:hover .description,
@@ -125,7 +126,7 @@ $color-primary-white: rgb(240, 240, 240);
     background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.3),
-      rgba(0, 0, 0, 0.9)
+      rgba(0, 0, 0, 1)
     );
     opacity: 0;
     transition: opacity 2.3s ease;

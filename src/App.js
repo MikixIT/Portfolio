@@ -103,15 +103,6 @@ function App() {
         <ProjectShow />
       </section>
       <section className="contact-section">
-        <TextCursor
-          text="scroll"
-          delay={0.01}
-          spacing={100}
-          followMouseDirection={true}
-          randomFloat={true}
-          exitDuration={0.1}
-          maxPoints={15}
-        />
         <Contact buttonContactClicked={openModal} />
       </section>
       <section>

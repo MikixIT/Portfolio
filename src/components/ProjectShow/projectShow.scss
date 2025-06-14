@@ -22,31 +22,6 @@ h2 {
   padding: 0 1rem;
   box-sizing: border-box;
 
-  .carousel-container {
-    width: 100%;
-    overflow: hidden;
-    padding: 2rem 0;
-
-    .carousel-track {
-      display: flex;
-      gap: 0px;
-      width: max-content;
-      animation: scrollLoop 20s linear infinite;
-    }
-
-    .carousel-track.paused {
-      animation-play-state: paused;
-    }
-
-    &:has(.card:hover) .carousel-track {
-      animation-play-state: paused;
-    }
-  }
-  .carousel-track.dragging {
-    cursor: grabbing;
-    user-select: none;
-  }
-
   .card {
     flex: 0 0 auto;
     width: 400px;
@@ -68,16 +43,6 @@ h2 {
     .card-content {
       padding: 1rem;
 
-      .title-card {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .description {
-        font-size: 1rem;
-        color: #444;
-      }
-
       .button {
         display: inline-block;
         margin-top: 1rem;
@@ -94,20 +59,4 @@ h2 {
       }
     }
   }
-}
-
-@keyframes scrollLoop {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
 }

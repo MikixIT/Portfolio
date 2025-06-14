@@ -1,9 +1,8 @@
 import React, { useEffect, useRef } from "react";
-import Card from "./Card/Card";
+import Carousel from "./Carousel/Carousel";
 import "./projectShow.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import projects from "../../data/projects.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,19 +32,7 @@ function ProjectShow() {
   return (
     <div className="project-show">
       <h2 ref={titleRef}>My Creations</h2>
-      <div className="carousel-container">
-        <div className="carousel-track">
-          {[...projects, ...projects].map((project, index) => (
-            <Card
-              key={index}
-              title={project.title}
-              description={project.description}
-              link={project.link}
-              image={project.image}
-            />
-          ))}
-        </div>
-      </div>
+      <Carousel />
     </div>
   );
 }
