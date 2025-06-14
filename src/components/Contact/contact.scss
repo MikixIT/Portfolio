@@ -1,5 +1,4 @@
 .contact-section {
-  padding: 10px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -9,7 +8,7 @@
   h2 {
     text-align: center;
     margin-top: 35px;
-    font-size: clamp(60px, 12vw, 12vw);
+    font-size: clamp(20px, 11vw, 11vw);
     background-color: transparent;
     text-transform: uppercase;
     font-family: "Anton", sans-serif;

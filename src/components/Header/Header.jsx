@@ -69,7 +69,7 @@ function Header() {
               name="link-external"
               size="sm"
               animation="tada"
-              style={{ marginLeft: 5 }}
+              style={{}}
               color={isDarkMode ? "white" : "black"}
             ></box-icon>{" "}
           </a>{" "}

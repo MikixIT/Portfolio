@@ -14,11 +14,8 @@
   letter-spacing: 3px;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
-  width: 200px;
-
-  font: {
-    size: 18px;
-  }
+  width: min(40vw, 200px);
+  font-size: clamp(1.2rem, 4vw, 0.2rem);
 }
 
 .button-contact:hover {
@@ -40,14 +37,11 @@
   padding: 15px;
   text-transform: uppercase;
   vertical-align: middle;
+  font-size: clamp(1.2rem, 4vw, 0.2rem);
+}
 
-  font: {
-    size: 18px;
-  }
-
-  .dropdown-item {
-    cursor: pointer;
-  }
+.dropdown-item {
+  cursor: pointer;
 }
 
 .button-options {

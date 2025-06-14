@@ -47,7 +47,6 @@ function DarkMode() {
   }, []);
 
   useEffect(() => {
-    // Animazione per l'intestazione
     gsap.from(".buttonDarkMode", {
       duration: 1,
       y: 700,

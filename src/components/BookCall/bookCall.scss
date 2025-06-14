@@ -1,17 +1,10 @@
-.book-call {
+.book-call-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
-
-  h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
 
   .calendly-inline-widget {
+    border-radius: 30px 30px 30px 30px;
     width: 100%;
     max-width: 700px;
     height: 630px;

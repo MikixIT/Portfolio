@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./bookCall.scss"; // importa lo stile SCSS
+import "./bookCall.scss";
 
 const BookCall = () => {
   useEffect(() => {
@@ -10,12 +10,11 @@ const BookCall = () => {
   }, []);
 
   return (
-    <div className="book-call">
-      <h2>Let’s talk – book a short intro call </h2>
+    <div className="book-call-container">
       <div
         className="calendly-inline-widget"
         data-url="https://calendly.com/michaeltorresdeveloper/30min"
-        style={{ minWidth: "320px", height: "630px" }}
+        style={{ minWidth: "420px", height: "630px" }}
       ></div>
     </div>
   );

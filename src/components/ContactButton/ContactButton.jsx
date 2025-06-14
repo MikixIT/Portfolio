@@ -25,30 +25,12 @@ function ContactButton({ calendarButtonClicked }) {
     if (!buttonRef.current || !dropdownRef.current) return;
 
     if (isDropdownOpen) {
-      gsap.to(buttonRef.current, {
-        width: "200px",
-        duration: 0.1,
-        ease: "power2.out",
-      });
       gsap.fromTo(
         dropdownRef.current,
         { opacity: 0, y: -30 },
         { opacity: 1, y: 0, duration: 2.1, ease: "power2.out" }
       );
     } else {
-      gsap.to(dropdownRef.current, {
-        opacity: 0,
-        y: -20,
-        duration: 0.1,
-        ease: "power2.in",
-        onComplete: () => {
-          gsap.to(buttonRef.current, {
-            width: "200px",
-            duration: 0.1,
-            ease: "power2.in",
-          });
-        },
-      });
     }
   }, [isDropdownOpen]);
 

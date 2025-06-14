@@ -4,6 +4,18 @@
   --link_color: grey;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--body_bg); /* o colore che usi */
+  color: var(--body_color);
+  font-family: sans-serif;
+}
+
 .dark-mode {
   --body_bg: #111;
   --body_color: rgba(255, 255, 255, 0.967);
@@ -25,45 +37,53 @@ body {
 .main-container {
   height: 100vh;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
   position: relative;
   width: calc(100vw - 50px);
   margin: 0 auto;
 
   h1 {
-    font-size: clamp(100px, 13vw, 13vw);
+    font-size: clamp(4rem, 12vw, 15rem);
     font-weight: 700;
-    margin-bottom: 10vh;
-    margin-top: 399px;
-    max-width: 70vw;
     font-family: "Anton", sans-serif;
     color: var(--body_color);
     line-height: 1;
     pointer-events: none;
     margin-right: 10px;
     margin-left: 10px;
-
-    @media (max-width: 768px) {
-      margin-bottom: 30vh;
-      margin-left: -5px;
+    margin-top: 20vh;
+  }
+  .type-writer {
+    background: var(--body_bg);
+    font-size: clamp(2rem, 6vw, 8rem);
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: 700;
+    font-family: "Anton", sans-serif;
+    color: var(--body_color);
+    line-height: 1;
+    pointer-events: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 30px;
+    padding-bottom: 100px;
+  }
+  @media (max-width: 768px) {
+    h1 {
+      margin-top: 30vh;
+      font-size: clamp(6rem, 20vw, 15rem);
     }
+  }
 
-    #type-writer {
-      background: transparent;
-      margin-top: 15px;
-      color: var(--body_color);
-      font-size: clamp(52px, 10vw, 10vw);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: clip;
-      max-width: 50%;
+  .hover-zone {
+    position: relative;
+    display: inline-block;
+  }
 
-      @media (max-width: 768px) {
-        #type-writer {
-          max-width: 90vw;
-          font-size: clamp(60px, 10vw, 10vw);
-        }
-      }
-    }
+  .hover-zone > div {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
   }
 }

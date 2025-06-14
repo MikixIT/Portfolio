@@ -1,5 +1,4 @@
 import "./App.scss";
-
 import ContactButton from "./components/ContactButton/ContactButton";
 import Header from "./components/Header/Header";
 import DarkMode from "./components/DarkMode/DarkMode";
@@ -12,7 +11,7 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Modal from "./components/Modal/Modal";
 import BookCall from "./components/BookCall/BookCall";
-import mtImg from "./assets/mtImg.png";
+import TextCursor from "./components/Animations/text-cursor";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,34 +31,28 @@ function App() {
   useEffect(() => {
     gsap.from("h1", {
       duration: 1,
-      y: 50,
+      y: 100,
       opacity: 0,
       ease: "power4.out",
-      delay: 0.5,
     });
     gsap.to("h1", {
       duration: 1,
       y: 0,
       opacity: 1,
       ease: "power4.out",
-      delay: 0.5,
     });
 
-    // Animazione per il Typewriter
-    gsap.from("#type-writer", {
+    gsap.from(".type-writer", {
       duration: 1,
-      y: 50,
-      opacity: 1,
+      y: 300,
+      opacity: 0,
       ease: "power4.out",
-      delay: 1,
     });
-
-    gsap.to("#type-writer", {
+    gsap.to(".type-writer", {
       duration: 1,
       y: 0,
       opacity: 1,
       ease: "power4.out",
-      delay: 1.5,
     });
   }, []);
 
@@ -70,30 +63,38 @@ function App() {
         <DarkMode />
         <h1>
           MICHAEL <br /> TORRES <br />
-          <span id="type-writer">
-            <Typewriter
-              words={[
-                ".DEV",
-                "CREATIVE",
-                "DEVELOPER",
-                "BASED IN",
-                "HAMBURG",
-                "CODER",
-                "PROBLEM",
-                "SOLVING",
-                "DREAMER",
-                "STILL HERE?",
-              ]}
-              loop={999}
-              cursor
-              cursorStyle="|"
-              typeSpeed={400}
-              deleteSpeed={60}
-              delaySpeed={800}
-            />
-          </span>{" "}
         </h1>
-
+        <span className="type-writer">
+          <Typewriter
+            words={[
+              ".DEV",
+              "CREATIVE",
+              "DEVELOPER",
+              "BASED IN",
+              "HAMBURG",
+              "CODER",
+              "PROBLEM",
+              "SOLVING",
+              "DREAMER",
+              "STILL HERE?",
+            ]}
+            loop={999}
+            cursor
+            cursorStyle="|"
+            typeSpeed={400}
+            deleteSpeed={60}
+            delaySpeed={800}
+          />
+        </span>{" "}
+        <TextCursor
+          text="scroll"
+          delay={0.01}
+          spacing={100}
+          followMouseDirection={true}
+          randomFloat={true}
+          exitDuration={0.1}
+          maxPoints={15}
+        />
         <div className="contact-button">
           <ContactButton calendarButtonClicked={openModal} />
         </div>
@@ -102,16 +103,27 @@ function App() {
         <ProjectShow />
       </section>
       <section className="contact-section">
-        <Contact buttonContactClicked={openModal} />
-        <Modal
-          isOpenModal={modalStaus}
-          closeModal={closeModal}
-          contentModal={<BookCall />}
+        <TextCursor
+          text="scroll"
+          delay={0.01}
+          spacing={100}
+          followMouseDirection={true}
+          randomFloat={true}
+          exitDuration={0.1}
+          maxPoints={15}
         />
+        <Contact buttonContactClicked={openModal} />
       </section>
       <section>
         <Footer />
       </section>
+      <Modal
+        titleModal={"Booking a short call with me"}
+        subtitleModal={"Let's talk about your project."}
+        isOpenModal={modalStaus}
+        closeModal={closeModal}
+        contentModal={<BookCall />}
+      />
     </>
   );
 }
