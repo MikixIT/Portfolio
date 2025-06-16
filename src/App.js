@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   useEffect(() => {
     document.body.classList.add("dark-mode");
-  });
+  }, []);
 
   const [modalStaus, setModalStatus] = useState(false);
   const openModal = () => {
