@@ -12,6 +12,7 @@ import Footer from "./components/Footer/Footer";
 import Modal from "./components/Modal/Modal";
 import BookCall from "./components/BookCall/BookCall";
 import TextCursor from "./components/Animations/text-cursor";
+import ScrollVelocity from "./components/Animations/scroll-velocity";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,13 +102,16 @@ function App() {
       </section>
       <section className="main-content">
         <ProjectShow />
+        <ScrollVelocity
+          texts={["MY PROJECTS", "CHECK THEM OUT"]}
+          velocity={50}
+          className="custom-scroll-text"
+        />
       </section>
       <section className="contact-section">
         <Contact buttonContactClicked={openModal} />
       </section>
-      <section>
-        <Footer />
-      </section>
+      <footer></footer>
       <Modal
         titleModal={"Booking a short call with me"}
         subtitleModal={"Let's talk about your project."}

@@ -73,11 +73,12 @@
     }
   }
   .description-contact-button {
-    font-size: 1.4em;
-    font-weight: 600 !important;
+    font-size: 1.2em;
+
     font-family: Anton, sans-serif;
     color: var(--body_color);
     cursor: default;
+    word-break: none;
 
     &:hover {
       color: var(--primary_color);
@@ -103,7 +104,7 @@
   font-family: Anton;
   @media (max-width: 768px) {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }
 

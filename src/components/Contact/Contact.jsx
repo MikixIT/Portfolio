@@ -34,6 +34,7 @@ function Contact({ buttonContactClicked }) {
   return (
     <div className="contact-section">
       <h2 ref={h2Ref}>Contact Me</h2>
+
       <ContactForm buttonContactClicked={buttonContactClicked} />
     </div>
   );

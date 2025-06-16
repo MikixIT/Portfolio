@@ -83,23 +83,24 @@
   .button {
     display: inline-block;
     margin-top: 10px;
-    color: var(--body_color);
+    color: var(--body_bg);
     text-decoration: none;
-    border: 1px solid var(--body_color);
+    border: 2px solid var(--body_bg);
     padding: 5px 10px;
     border-radius: 4px;
-    transition: background 0.3s ease-out, color 0.3s ease-out,
+    transition: background 0.4s ease-out, color 0.5s ease-out,
       opacity 0.3s ease-out, transform 0.3s ease-out;
     position: absolute;
     opacity: 0;
     bottom: 50px;
     left: 30px;
-    background: var(--body_bg);
+    background: var(--body_color);
     transform: translateY(20px);
 
     &:hover {
-      background: var(--body_color);
-      color: var(--body_bg);
+      background: var(--body_bg);
+      color: var(--body_color);
+      border: 2px solid var(--body_color);
     }
   }
 
