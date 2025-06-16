@@ -1,9 +1,9 @@
-import prevPokeFilter from "../assets/pokefilter-preview.png";
-import prevVanGogh from "../assets/vgd-preview.png";
-import prevMETEO from "../assets/meteo-preview.png";
-import prevPokeQuiz from "../assets/quiz-pokeapp-preview.png";
-import prevApple from "../assets/applelike-preview.png";
-import prevLuxury from "../assets/luxury-preview.png";
+import prevPokeFilter from "../assets/previewImage/pokefilter-preview.png";
+import prevVanGogh from "../assets/previewImage/vgd-preview.png";
+import prevMETEO from "../assets/previewImage/meteo-preview.png";
+import prevPokeQuiz from "../assets/previewImage/quiz-pokeapp-preview.png";
+import prevApple from "../assets/previewImage/applelike-preview.png";
+import prevLuxury from "../assets/previewImage/luxury-preview.png";
 
 const projects = [
   {
