@@ -8,7 +8,7 @@ import "./carousel.scss";
 const Carousel = ({ options = { dragFree: true, loop: true } }) => {
   const [emblaRef] = useEmblaCarousel(options, [
     AutoScroll({
-      speed: 1,
+      speed: 2,
       stopOnInteraction: false,
       startDelay: 20,
       stopOnMouseEnter: true,

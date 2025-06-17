@@ -103,7 +103,7 @@ function App() {
       <section className="main-content">
         <ProjectShow />
         <ScrollVelocity
-          texts={["MY PROJECTS", "CHECK THEM OUT"]}
+          texts={["EXPLORE MY PROJECTS ", "CHECK THEM OUT"]}
           velocity={50}
           className="custom-scroll-text"
         />
