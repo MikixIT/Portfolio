@@ -8,7 +8,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useState } from "react";
 import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer/Footer";
 import Modal from "./components/Modal/Modal";
 import BookCall from "./components/BookCall/BookCall";
 import TextCursor from "./components/Animations/text-cursor";
@@ -113,7 +112,7 @@ function App() {
       </section>
       <footer></footer>
       <Modal
-        titleModal={"Booking a short call with me"}
+        titleModal={"Booking a short call with me!"}
         subtitleModal={"Let's talk about your project."}
         isOpenModal={modalStaus}
         closeModal={closeModal}

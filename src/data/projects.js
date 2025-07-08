@@ -4,6 +4,7 @@ import prevMETEO from "../assets/previewImage/meteo-preview.png";
 import prevPokeQuiz from "../assets/previewImage/quiz-pokeapp-preview.png";
 import prevApple from "../assets/previewImage/applelike-preview.png";
 import prevLuxury from "../assets/previewImage/luxury-preview.png";
+import prevMilanDesign from "../assets/previewImage/milan-design-preview.png";
 
 const projects = [
   {
@@ -47,6 +48,13 @@ const projects = [
       "Minimalism meets power. An Apple-style web experience, without compromise.",
     link: "https://mikixit.github.io/apple-site-like/",
     image: prevApple,
+  },
+  {
+    title: "Design Agency Milan",
+    description:
+      "A sleek, modern portfolio website built with cutting-edge technologies. This project showcases a minimalist design approach with smooth animations and responsive layout",
+    link: "https://design-agency-milan.vercel.app/",
+    image: prevMilanDesign,
   },
 ];
 
