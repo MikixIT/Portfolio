@@ -1,21 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.248d2218.css",
-    "main.js": "/static/js/main.cbd580ab.js",
+    "main.css": "/static/css/main.a64d506f.css",
+    "main.js": "/static/js/main.f964bd88.js",
     "static/js/453.d499577d.chunk.js": "/static/js/453.d499577d.chunk.js",
     "static/media/meteo-preview.png": "/static/media/meteo-preview.bc717b3c3e457f903fe5.png",
     "static/media/vgd-preview.png": "/static/media/vgd-preview.569f67e7fed7fa3e9013.png",
     "static/media/luxury-preview.png": "/static/media/luxury-preview.cdcd0dda8b8a2345e9cd.png",
+    "static/media/milan-design-preview.png": "/static/media/milan-design-preview.0089bfcf2e3fba747568.png",
     "static/media/pokefilter-preview.png": "/static/media/pokefilter-preview.2aade2178ed90b4a18c9.png",
     "static/media/applelike-preview.png": "/static/media/applelike-preview.2c046500ad25523f7822.png",
     "static/media/quiz-pokeapp-preview.png": "/static/media/quiz-pokeapp-preview.ceda0a13a1f42108c771.png",
     "index.html": "/index.html",
-    "main.248d2218.css.map": "/static/css/main.248d2218.css.map",
-    "main.cbd580ab.js.map": "/static/js/main.cbd580ab.js.map",
+    "main.a64d506f.css.map": "/static/css/main.a64d506f.css.map",
+    "main.f964bd88.js.map": "/static/js/main.f964bd88.js.map",
     "453.d499577d.chunk.js.map": "/static/js/453.d499577d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.248d2218.css",
-    "static/js/main.cbd580ab.js"
+    "static/css/main.a64d506f.css",
+    "static/js/main.f964bd88.js"
   ]
 }
