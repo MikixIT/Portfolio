@@ -52,7 +52,7 @@ const projects = [
   {
     title: "Design Agency Milan",
     description:
-      "A sleek, modern portfolio website built with cutting-edge technologies. This project showcases a minimalist design approach with smooth animations and responsive layout",
+      "A sleek, modern portfolio website built with cutting-edge technologies. Minimalist design approach with smooth animations and responsive layout.",
     link: "https://design-agency-milan.vercel.app/",
     image: prevMilanDesign,
   },
