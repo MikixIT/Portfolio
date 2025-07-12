@@ -12,19 +12,16 @@ function Footer() {
   useEffect(() => {
     const footer = footerRef.current;
 
-    // Inizialmente nascondi il footer
     gsap.set(footer, {
       y: 100,
       opacity: 0,
     });
 
-    // Crea ScrollTrigger per animare il footer quando si arriva in fondo
     ScrollTrigger.create({
       trigger: document.documentElement,
       start: "bottom bottom",
       end: "bottom bottom",
       onEnter: () => {
-        // Animazione di entrata del footer
         gsap.to(footer, {
           y: 0,
           opacity: 1,
@@ -32,7 +29,6 @@ function Footer() {
           ease: "power3.out",
         });
 
-        // Animazione degli elementi interni con delay
         const footerElements = footer.querySelectorAll(".footer-content > *");
         gsap.to(footerElements, {
           y: 0,
@@ -44,7 +40,6 @@ function Footer() {
         });
       },
       onLeaveBack: () => {
-        // Nascondi il footer quando si torna su
         gsap.to(footer, {
           y: 100,
           opacity: 0,
@@ -52,7 +47,6 @@ function Footer() {
           ease: "power2.in",
         });
 
-        // Nascondi gli elementi interni
         const footerElements = footer.querySelectorAll(".footer-content > *");
         gsap.to(footerElements, {
           y: 30,
@@ -75,7 +69,7 @@ function Footer() {
         <div className="footer-section">
           <div className="social-links">
             <a
-              href="https://github.com/MikixIT/Portfolio"
+              href="https://github.com/MikixIT/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"

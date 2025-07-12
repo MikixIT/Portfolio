@@ -7,7 +7,6 @@
   -webkit-backdrop-filter: blur(20px);
   padding: 3rem 0 2rem;
   margin-top: 4rem;
-  /* Inizialmente nascosto e pronto per l'animazione */
   transform: translateY(100px);
   opacity: 0;
   will-change: transform, opacity;
@@ -36,7 +35,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    /* Inizialmente nascosto per l'animazione */
     transform: translateY(30px);
     opacity: 0;
 
@@ -112,7 +110,6 @@
   }
 }
 
-// Dark mode specific styles
 .dark-mode .apple-footer {
   border-top-color: rgba(255, 255, 255, 0.05);
 
@@ -127,7 +124,6 @@
   }
 }
 
-// Light mode specific styles
 .light-mode .apple-footer {
   border-top-color: rgba(0, 0, 0, 0.1);
 
@@ -142,7 +138,6 @@
   }
 }
 
-// Animazioni di hover per i link social
 .social-links a {
   position: relative;
   overflow: hidden;
