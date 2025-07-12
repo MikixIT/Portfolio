@@ -15,6 +15,9 @@ body {
   color: var(--body_color);
   font-family: sans-serif;
   overflow-x: hidden;
+  /* Ottimizzazioni per Lenis */
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .dark-mode {
@@ -34,6 +37,20 @@ body {
   color: var(--body_color);
   transition: background-color 9.5s ease, color 0.5s ease;
   max-width: 100%;
+  /* Smooth scrolling con Lenis */
+  scroll-behavior: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ottimizzazioni per Lenis */
+html {
+  scroll-behavior: auto;
+}
+
+/* Migliora la performance di rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .main-container {

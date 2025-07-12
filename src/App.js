@@ -12,10 +12,14 @@ import Modal from "./components/Modal/Modal";
 import BookCall from "./components/BookCall/BookCall";
 import TextCursor from "./components/Animations/text-cursor";
 import ScrollVelocity from "./components/Animations/scroll-velocity";
+import { useLenis } from "./hooks/useLenis";
+import Footer from "./components/Footer/Footer";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const lenis = useLenis();
+
   useEffect(() => {
     document.body.classList.add("dark-mode");
   }, []);
@@ -55,6 +59,18 @@ function App() {
       ease: "power4.out",
     });
   }, []);
+
+  useEffect(() => {
+    if (lenis) {
+      lenis.on("scroll", ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+
+      gsap.ticker.lagSmoothing(0);
+    }
+  }, [lenis]);
 
   return (
     <>
@@ -109,8 +125,8 @@ function App() {
       </section>
       <section className="contact-section">
         <Contact buttonContactClicked={openModal} />
+        <Footer />
       </section>
-      <footer></footer>
       <Modal
         titleModal={"Booking a short call with me!"}
         subtitleModal={"Let's talk about your project."}
