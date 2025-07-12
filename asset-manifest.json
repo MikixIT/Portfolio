@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.a64d506f.css",
-    "main.js": "/static/js/main.1f656d9c.js",
+    "main.css": "/static/css/main.08f88dc6.css",
+    "main.js": "/static/js/main.f7cc940f.js",
     "static/js/453.d499577d.chunk.js": "/static/js/453.d499577d.chunk.js",
     "static/media/meteo-preview.png": "/static/media/meteo-preview.bc717b3c3e457f903fe5.png",
     "static/media/vgd-preview.png": "/static/media/vgd-preview.569f67e7fed7fa3e9013.png",
@@ -11,12 +11,12 @@
     "static/media/applelike-preview.png": "/static/media/applelike-preview.2c046500ad25523f7822.png",
     "static/media/quiz-pokeapp-preview.png": "/static/media/quiz-pokeapp-preview.ceda0a13a1f42108c771.png",
     "index.html": "/index.html",
-    "main.a64d506f.css.map": "/static/css/main.a64d506f.css.map",
-    "main.1f656d9c.js.map": "/static/js/main.1f656d9c.js.map",
+    "main.08f88dc6.css.map": "/static/css/main.08f88dc6.css.map",
+    "main.f7cc940f.js.map": "/static/js/main.f7cc940f.js.map",
     "453.d499577d.chunk.js.map": "/static/js/453.d499577d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a64d506f.css",
-    "static/js/main.1f656d9c.js"
+    "static/css/main.08f88dc6.css",
+    "static/js/main.f7cc940f.js"
   ]
 }
