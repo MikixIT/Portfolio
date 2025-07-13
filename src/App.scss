@@ -34,7 +34,7 @@ body {
 body {
   background-color: var(--body_bg);
   color: var(--body_color);
-  transition: background-color 9.5s ease, color 0.5s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
   max-width: 100%;
   scroll-behavior: auto;
   -webkit-overflow-scrolling: touch;

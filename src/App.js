@@ -20,10 +20,6 @@ gsap.registerPlugin(ScrollTrigger);
 function App() {
   const lenis = useLenis();
 
-  useEffect(() => {
-    document.body.classList.add("dark-mode");
-  }, []);
-
   const [modalStaus, setModalStatus] = useState(false);
   const openModal = () => {
     setModalStatus(true);

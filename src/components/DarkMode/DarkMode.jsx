@@ -7,16 +7,27 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 function DarkMode() {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem("darkMode");
+    return saved === null ? true : saved === "true";
+  });
   const buttonRef = useRef(null);
 
   const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => {
       const newMode = !prevMode;
       document.body.classList.toggle("dark-mode", newMode);
+      document.body.classList.toggle("light-mode", !newMode);
+      localStorage.setItem("darkMode", newMode);
       return newMode;
     });
   };
+
+  useEffect(() => {
+    // On mount, set the correct class on body
+    document.body.classList.toggle("dark-mode", isDarkMode);
+    document.body.classList.toggle("light-mode", !isDarkMode);
+  }, [isDarkMode]);
 
   useEffect(() => {
     if (buttonRef.current) {
