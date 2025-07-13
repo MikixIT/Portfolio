@@ -104,3 +104,21 @@ html {
     z-index: 10;
   }
 }
+
+.swal2-theme-bg {
+  background: var(--body_bg) !important;
+  color: var(--body_color) !important;
+}
+.swal2-theme-btn {
+  background: var(--body_color) !important;
+  color: var(--body_bg) !important;
+  border: none !important;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 0.5em 1.5em;
+  font-size: 1.1em;
+  transition: background 0.2s, color 0.2s;
+}
+.swal2-theme-btn:hover {
+  opacity: 0.85;
+}

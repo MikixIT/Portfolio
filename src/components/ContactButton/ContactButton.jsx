@@ -3,7 +3,10 @@ import "./contactButton.scss";
 import { gsap } from "gsap";
 
 function ContactButton({ calendarButtonClicked }) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem("darkMode");
+    return saved === null ? true : saved === "true";
+  });
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const buttonRef = useRef(null);
   const dropdownRef = useRef(null);

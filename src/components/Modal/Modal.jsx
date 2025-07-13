@@ -1,4 +1,4 @@
-import { React, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./modal.scss";
 
 function Modal({
@@ -9,6 +9,19 @@ function Modal({
   closeModal,
 }) {
   const modalRef = useRef();
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem("darkMode");
+    return saved === null ? true : saved === "true";
+  });
+
+  useEffect(() => {
+    const body = document.body;
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(body.classList.contains("dark-mode"));
+    });
+    observer.observe(body, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -30,7 +43,10 @@ function Modal({
 
   return (
     <div className="modal-overlay">
-      <div className="modal-container" ref={modalRef}>
+      <div
+        className={`modal-container ${isDarkMode ? "dark" : "light"}`}
+        ref={modalRef}
+      >
         <button className="close-modal" onClick={closeModal}>
           ❌
         </button>

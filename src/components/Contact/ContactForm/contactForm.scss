@@ -185,6 +185,14 @@ button {
   }
 }
 
+.social-icons svg {
+  width: 3em;
+  height: 3em;
+  fill: var(--body_color);
+  vertical-align: middle;
+  transition: fill 0.3s;
+}
+
 .read-more {
   text-align: center;
   width: 100%;

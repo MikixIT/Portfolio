@@ -5,7 +5,10 @@ import Swal from "sweetalert2";
 import gsap from "gsap";
 
 function ContactForm({ buttonContactClicked }) {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem("darkMode");
+    return saved === null ? true : saved === "true";
+  });
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -72,12 +75,22 @@ function ContactForm({ buttonContactClicked }) {
           title: "✅ Done!",
           text: "I will reply to you as soon as possible!",
           width: "30em",
-          color: "#606060",
-          confirmButtonColor: "green",
+          color: getComputedStyle(document.documentElement)
+            .getPropertyValue("--body_color")
+            .trim(),
+          background: getComputedStyle(document.documentElement)
+            .getPropertyValue("--body_bg")
+            .trim(),
+          confirmButtonColor: getComputedStyle(document.documentElement)
+            .getPropertyValue("--body_color")
+            .trim(),
           confirmButtonText: "Cool!",
           allowEscapeKey: true,
+          customClass: {
+            popup: "swal2-theme-bg",
+            confirmButton: "swal2-theme-btn",
+          },
         });
-        console.log("Email sent", res);
         form.reset();
       } else {
         throw new Error("Submission failed");
@@ -89,9 +102,21 @@ function ContactForm({ buttonContactClicked }) {
         text: "Something went wrong. Please try again later. I'm Sorry >:(",
         toast: true,
         width: "30em",
-        confirmButtonColor: "#d33",
+        color: getComputedStyle(document.documentElement)
+          .getPropertyValue("--body_color")
+          .trim(),
+        background: getComputedStyle(document.documentElement)
+          .getPropertyValue("--body_bg")
+          .trim(),
+        confirmButtonColor: getComputedStyle(document.documentElement)
+          .getPropertyValue("--body_color")
+          .trim(),
         confirmButtonText: "Okay  :(",
         allowEscapeKey: true,
+        customClass: {
+          popup: "swal2-theme-bg",
+          confirmButton: "swal2-theme-btn",
+        },
       });
     }
   };
@@ -141,10 +166,11 @@ function ContactForm({ buttonContactClicked }) {
             href="https://www.linkedin.com/in/michaeltorresdev/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
             <box-icon
-              name="linkedin-square"
               type="logo"
+              name="linkedin-square"
               size="3em"
               color={isDarkMode ? "white" : "black"}
             ></box-icon>

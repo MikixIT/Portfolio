@@ -1,8 +1,8 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import AutoScroll from "embla-carousel-auto-scroll";
-import Card from "../Card/Card"; // path corretto
-import projects from "../../../data/projects"; // path corretto
+import Card from "../Card/Card";
+import projects from "../../../data/projects";
 import "./carousel.scss";
 
 const Carousel = ({ options = { dragFree: true, loop: true } }) => {
