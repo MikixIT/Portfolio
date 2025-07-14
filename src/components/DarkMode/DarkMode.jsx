@@ -16,6 +16,24 @@ function DarkMode() {
   const buttonIconRef = useRef(null);
 
   const toggleDarkMode = () => {
+    // Animazione icona
+    if (buttonIconRef.current) {
+      gsap.fromTo(
+        buttonIconRef.current,
+        { rotate: 0, scale: 1 },
+        {
+          rotate: 360,
+          scale: 1.3,
+          duration: 0.5,
+          ease: "power2.out",
+          yoyo: true,
+          repeat: 1,
+          onComplete: () => {
+            gsap.to(buttonIconRef.current, { scale: 1, duration: 0.2 });
+          },
+        }
+      );
+    }
     setIsDarkMode((prevMode) => {
       const newMode = !prevMode;
       document.body.classList.toggle("dark-mode", newMode);

@@ -134,7 +134,7 @@ function Header() {
           />
         </a>
         <a
-          href="/CV/MichaelTorres-CV.pdf"
+          href="https://github.com/MikixIT/Portfolio/raw/refs/heads/portfolio/CV/MichaelTorres-CV.pdf"
           className="header-icon"
           title="Download CV"
           download
