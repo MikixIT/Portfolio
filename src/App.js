@@ -14,6 +14,7 @@ import TextCursor from "./components/Animations/text-cursor";
 import ScrollVelocity from "./components/Animations/scroll-velocity";
 import { useLenis } from "./hooks/useLenis";
 import Footer from "./components/Footer/Footer";
+import WhoIAm from "./components/whoiam/WhoIAm";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -112,6 +113,7 @@ function App() {
         </div>
       </section>
       <section className="main-content">
+        <WhoIAm />
         <ProjectShow />
         <ScrollVelocity
           texts={["EXPLORE MY PROJECTS ", "CHECK THEM OUT"]}

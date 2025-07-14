@@ -6,46 +6,85 @@
   z-index: 1000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: transparent;
-}
-box-icon {
-  border: none;
-  background: transparent;
+  will-change: transform, opacity;
+  opacity: 0;
+  visibility: hidden;
 }
 
-.top-description {
+.header-icons {
   position: fixed;
   z-index: 11;
   top: 20px;
   right: 5vw;
-  max-width: 160px;
-  color: var(--body_color);
-  text-transform: uppercase;
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  vertical-align: middle;
+  gap: 1.5rem;
   align-items: center;
-  letter-spacing: 2px;
-  transition: 0.7s ease-in-out;
-  cursor: default;
   background: transparent;
 
-  font: {
-    size: 18px;
-    background: transparent;
-    family: Arial;
-  }
-
-  p {
-    display: inline-flex;
+  .header-icon {
+    display: flex;
     align-items: center;
-    text-align: center;
-    background: transparent;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(60px);
+    -webkit-backdrop-filter: blur(60px);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: var(--body_color);
+    text-decoration: none;
+
+    &:hover {
+      transform: scale(1.12) translateY(-3px);
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+      transform: scale(1.08) translateY(-1px);
+      transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    box-icon {
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
   }
 
-  a:hover {
-    transform: scale(1.2);
-    transition: 2s ease;
+  // Dark mode support
+  .dark-mode .header-icon {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+    }
+  }
+
+  // Light mode support
+  .light-mode .header-icon {
+    background: rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+
+    .header-icon {
+      width: 35px;
+      height: 35px;
+    }
   }
 }

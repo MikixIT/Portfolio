@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import "./intro.scss";
 import { preLoaderAnim } from "../Animation/Animation";
 import "animate.css";
-import "boxicons";
 
 function Intro() {
   useEffect(() => {

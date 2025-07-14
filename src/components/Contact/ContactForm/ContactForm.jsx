@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./contactForm.scss"; // Assicurati di avere il CSS giusto
-import "boxicons";
 import Swal from "sweetalert2";
 import gsap from "gsap";
+import { FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 
 function ContactForm({ buttonContactClicked }) {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -168,24 +169,15 @@ function ContactForm({ buttonContactClicked }) {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            <box-icon
-              type="logo"
-              name="linkedin-square"
-              size="3em"
-              color={isDarkMode ? "white" : "black"}
-            ></box-icon>
+            <FaLinkedin size="3em" color={isDarkMode ? "white" : "black"} />
           </a>
           <a
             href="https://github.com/MikixIT/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub"
           >
-            <box-icon
-              type="logo"
-              name="github"
-              size="3em"
-              color={isDarkMode ? "white" : "black"}
-            ></box-icon>
+            <FaGithub size="3em" color={isDarkMode ? "white" : "black"} />
           </a>
         </div>
 

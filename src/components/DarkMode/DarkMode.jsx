@@ -3,6 +3,7 @@ import "./darkMode.scss";
 import "animate.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MdOutlineNightlight } from "react-icons/md";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +13,7 @@ function DarkMode() {
     return saved === null ? true : saved === "true";
   });
   const buttonRef = useRef(null);
+  const buttonIconRef = useRef(null);
 
   const toggleDarkMode = () => {
     setIsDarkMode((prevMode) => {
@@ -30,56 +32,89 @@ function DarkMode() {
   }, [isDarkMode]);
 
   useEffect(() => {
-    if (buttonRef.current) {
-      const showAnim = gsap
-        .fromTo(
-          buttonRef.current,
-          { xPercent: 0 },
-          { xPercent: -400, duration: 0.5 }
-        )
-        .pause();
+    const button = document.querySelector(".buttonDarkMode");
 
-      ScrollTrigger.create({
-        trigger: buttonRef.current,
-        start: "top top",
-        end: "max",
-        scrub: 9,
-        onUpdate: (self) => {
-          if (self.direction === 1) {
-            // Scrolling down
-            showAnim.duration(0.5).play();
-          } else {
-            // Scrolling up
-            showAnim.duration(0.2).reverse();
-          }
-        },
+    gsap.set(button, {
+      y: 0,
+      opacity: 1,
+    });
+
+    ScrollTrigger.create({
+      trigger: "body",
+      start: "top top",
+      end: "max",
+      onUpdate: (self) => {
+        if (self.direction === 1 && self.progress > 0.1) {
+          // Scrolling down - hide button
+          gsap.to(button, {
+            y: -100,
+            opacity: 0,
+            duration: 0.8,
+            ease: "power3.out",
+          });
+        } else if (self.direction === -1 || self.progress < 0.1) {
+          // Scrolling up or at top - show button
+          gsap.to(button, {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+          });
+        }
+      },
+    });
+  }, []);
+
+  useEffect(() => {
+    gsap.set(".buttonDarkMode", {
+      opacity: 0,
+      visibility: "hidden",
+      y: 20,
+    });
+
+    gsap.to(".buttonDarkMode", {
+      duration: 3,
+      y: 0,
+      opacity: 1,
+      visibility: "visible",
+      ease: "power3.out",
+      delay: 0.1,
+    });
+  }, []);
+
+  useEffect(() => {
+    if (buttonIconRef.current) {
+      gsap.set(buttonIconRef.current, {
+        opacity: 0,
+        y: -30,
+        scale: 0.8,
+        rotationX: -15,
+      });
+
+      gsap.to(buttonIconRef.current, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotationX: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        delay: 0.5,
       });
     }
   }, []);
 
-  useEffect(() => {
-    gsap.from(".buttonDarkMode", {
-      duration: 1,
-      y: 700,
-      opacity: 1,
-      ease: "power2.out",
-    });
-    gsap.to(".buttonDarkMode", {
-      duration: 1,
-      y: 0,
-      opacity: 1,
-      ease: "power2.out",
-    });
-  }, []);
   return (
     <div className="buttonDarkMode" ref={buttonRef}>
-      <button className="animate__animated" onClick={toggleDarkMode}>
-        <box-icon
-          type="solid"
-          name="bulb"
-          color={isDarkMode ? "white" : "black"}
+      <button
+        className="animate__animated"
+        onClick={toggleDarkMode}
+        ref={buttonIconRef}
+      >
+        <MdOutlineNightlight
+          size={28}
+          color={isDarkMode ? "#fff" : "#000"}
           style={{ background: "transparent" }}
-        ></box-icon>
+        />
       </button>
     </div>
   );

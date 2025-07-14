@@ -13,8 +13,9 @@ function Footer() {
     const footer = footerRef.current;
 
     gsap.set(footer, {
-      y: 100,
+      y: 80,
       opacity: 0,
+      scale: 0.95,
     });
 
     ScrollTrigger.create({
@@ -22,10 +23,13 @@ function Footer() {
       start: "bottom bottom",
       end: "bottom bottom",
       onEnter: () => {
-        gsap.to(footer, {
+        const tl = gsap.timeline({ ease: "power3.out" });
+
+        tl.to(footer, {
           y: 0,
           opacity: 1,
-          duration: 1.2,
+          scale: 1,
+          duration: 1.4,
           ease: "power3.out",
         });
 
@@ -33,25 +37,26 @@ function Footer() {
         gsap.to(footerElements, {
           y: 0,
           opacity: 1,
-          duration: 0.8,
+          duration: 1,
           ease: "power2.out",
-          stagger: 0.15,
-          delay: 0.3,
+          stagger: 0.2,
+          delay: 0.4,
         });
       },
       onLeaveBack: () => {
         gsap.to(footer, {
-          y: 100,
+          y: 80,
           opacity: 0,
-          duration: 0.8,
+          scale: 0.95,
+          duration: 1,
           ease: "power2.in",
         });
 
         const footerElements = footer.querySelectorAll(".footer-content > *");
         gsap.to(footerElements, {
-          y: 30,
+          y: 20,
           opacity: 0,
-          duration: 0.4,
+          duration: 0.6,
           ease: "power2.in",
         });
       },
