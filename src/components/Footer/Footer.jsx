@@ -13,51 +13,28 @@ function Footer() {
     const footer = footerRef.current;
 
     gsap.set(footer, {
-      y: 80,
+      y: 30, // meno distanza
       opacity: 0,
-      scale: 0.95,
     });
 
     ScrollTrigger.create({
-      trigger: document.documentElement,
-      start: "bottom bottom",
-      end: "bottom bottom",
+      trigger: footer,
+      start: "top 92%", // parte un po' più tardi
       onEnter: () => {
-        const tl = gsap.timeline({ ease: "power3.out" });
-
-        tl.to(footer, {
-          y: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 1.4,
-          ease: "power3.out",
-        });
-
-        const footerElements = footer.querySelectorAll(".footer-content > *");
-        gsap.to(footerElements, {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out",
-          stagger: 0.2,
-          delay: 0.4,
-        });
-      },
-      onLeaveBack: () => {
         gsap.to(footer, {
-          y: 80,
-          opacity: 0,
-          scale: 0.95,
-          duration: 1,
-          ease: "power2.in",
+          y: 0,
+          opacity: 1,
+          duration: 0.5, // animazione più breve
+          ease: "power1.out",
         });
 
         const footerElements = footer.querySelectorAll(".footer-content > *");
         gsap.to(footerElements, {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power2.in",
+          y: 0,
+          opacity: 1,
+          duration: 0.4,
+          ease: "power1.out",
+          stagger: 0.08,
         });
       },
     });

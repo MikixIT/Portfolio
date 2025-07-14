@@ -2,6 +2,14 @@
   position: relative;
   overflow: hidden;
   margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .parallax {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
 }
 
 .scroller {
@@ -15,6 +23,13 @@
   letter-spacing: -0.01em;
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
   font-family: "Anton", sans-serif;
+}
+
+@media (max-width: 768px) {
+  .scroller {
+    margin: 0px;
+    font-size: 3rem;
+  }
 }
 
 .scroller span {

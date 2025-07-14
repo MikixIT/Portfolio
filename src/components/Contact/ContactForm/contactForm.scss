@@ -73,12 +73,13 @@
     }
   }
   .description-contact-button {
-    font-size: 1.2em;
-
+    font-size: 1.6em;
     font-family: Anton, sans-serif;
     color: var(--body_color);
     cursor: default;
     word-break: none;
+    margin-top: 2em;
+    margin-bottom: 2em;
 
     &:hover {
       color: var(--primary_color);
@@ -191,6 +192,22 @@ button {
   fill: var(--body_color);
   vertical-align: middle;
   transition: fill 0.3s;
+}
+
+.social-icons a {
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.2s,
+    background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0.2em;
+}
+
+.social-icons a:hover {
+  transform: scale(1.15) rotate(-8deg);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .read-more {

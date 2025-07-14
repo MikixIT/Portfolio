@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect, useState } from "react";
+import { useRef, useLayoutEffect, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -41,15 +41,40 @@ export const ScrollVelocity = ({
   parallaxStyle,
   scrollerStyle,
 }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const mobileVelocity = velocity * 0.6;
+  const mobileDamping = damping * 1.5;
+  const mobileStiffness = stiffness * 0.8;
+  const mobileVelocityMapping = {
+    input: [0, 500],
+    output: [0, 3],
+  };
+
+  const finalVelocity = isMobile ? mobileVelocity : velocity;
+  const finalDamping = isMobile ? mobileDamping : damping;
+  const finalStiffness = isMobile ? mobileStiffness : stiffness;
+  const finalVelocityMapping = isMobile
+    ? mobileVelocityMapping
+    : velocityMapping;
   function VelocityText({
     children,
-    baseVelocity = velocity,
+    baseVelocity = finalVelocity,
     scrollContainerRef,
     className = "",
-    damping,
-    stiffness,
+    damping = finalDamping,
+    stiffness = finalStiffness,
     numCopies,
-    velocityMapping,
+    velocityMapping = finalVelocityMapping,
     parallaxClassName,
     scrollerClassName,
     parallaxStyle,
@@ -62,8 +87,8 @@ export const ScrollVelocity = ({
     const { scrollY } = useScroll(scrollOptions);
     const scrollVelocity = useVelocity(scrollY);
     const smoothVelocity = useSpring(scrollVelocity, {
-      damping: damping ?? 50,
-      stiffness: stiffness ?? 400,
+      damping: damping,
+      stiffness: stiffness,
     });
     const velocityFactor = useTransform(
       smoothVelocity,
@@ -127,12 +152,12 @@ export const ScrollVelocity = ({
         <VelocityText
           key={index}
           className={className}
-          baseVelocity={index % 2 !== 0 ? -velocity : velocity}
+          baseVelocity={index % 2 !== 0 ? -finalVelocity : finalVelocity}
           scrollContainerRef={scrollContainerRef}
-          damping={damping}
-          stiffness={stiffness}
+          damping={finalDamping}
+          stiffness={finalStiffness}
           numCopies={numCopies}
-          velocityMapping={velocityMapping}
+          velocityMapping={finalVelocityMapping}
           parallaxClassName={parallaxClassName}
           scrollerClassName={scrollerClassName}
           parallaxStyle={parallaxStyle}

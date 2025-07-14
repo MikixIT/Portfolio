@@ -122,3 +122,19 @@ html {
 .swal2-theme-btn:hover {
   opacity: 0.85;
 }
+
+.main-content {
+  padding: 2rem 0;
+
+  @media (max-width: 768px) {
+    padding: 1rem 0;
+  }
+}
+
+.contact-section {
+  margin-top: 2rem;
+
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
+}

@@ -1,80 +1,175 @@
-.button-contact {
-  background: var(--bg);
-  color: var(--body_color);
-  border: 2px solid var(--body_color);
+.apple-dropdown-container {
   position: absolute;
   right: 5vw;
-  bottom: 8vh;
-  padding: 35px;
-  text-transform: uppercase;
-  vertical-align: middle;
+  bottom: 7vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.apple-contact-btn {
+  pointer-events: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  letter-spacing: 3px;
+  gap: 0.7em;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px) saturate(1.2);
+  border: 1.5px solid rgba(33, 33, 33, 0.532);
+  border-radius: 2em;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08), 0 1.5px 4px 0 rgba(0, 0, 0, 0.1);
+  color: #222;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.7em 1.7em;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
-  width: min(40vw, 200px);
-  font-size: clamp(1.2rem, 4vw, 0.2rem);
+  outline: none;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.13s;
+  user-select: none;
+  min-width: 170px;
+  min-height: 48px;
 }
 
-.button-contact:hover {
-  color: var(--body_color);
-  background-color: var(--body_bg);
-  opacity: 0.9;
-  border: 2px solid var(--body_color);
-  box-shadow: 2px 2px 4px var(--body_color);
-  padding: 30px;
+.apple-contact-btn .apple-contact-icon {
+  font-size: 1.3em;
+  margin-right: 0.2em;
 }
 
-.dropdown-menu {
-  background: var(--bg);
-  color: var(--body_color);
-  border: 2px solid var(--body_color);
+.apple-contact-btn .apple-contact-chevron {
+  font-size: 1.1em;
+  margin-left: 0.3em;
+  transition: transform 0.2s;
+}
+
+.apple-contact-btn.open .apple-contact-chevron {
+  transform: rotate(180deg);
+}
+
+.apple-contact-btn:hover,
+.apple-contact-btn:focus {
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.13), 0 2px 8px 0 rgba(0, 0, 0, 0.13);
+  transform: scale(1.04);
+}
+
+.apple-contact-btn:active {
+  background: rgba(255, 255, 255, 0.85);
+  transform: scale(0.97);
+}
+
+.apple-contact-btn.dark {
+  background: rgba(30, 30, 30, 0.7);
+  color: #f5f5f7;
+  border: 1.5px solid rgba(80, 80, 80, 0.3);
+}
+
+.apple-contact-btn.dark:hover,
+.apple-contact-btn.dark:focus {
+  background: rgba(30, 30, 30, 0.92);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.22), 0 2px 8px 0 rgba(0, 0, 0, 0.18);
+}
+
+.apple-contact-btn.dark:active {
+  background: rgba(30, 30, 30, 0.85);
+}
+
+.apple-contact-text {
+  background: transparent;
+}
+
+.dropdown-item-label {
+  background: transparent;
+}
+
+.apple-dropdown {
   position: absolute;
-  right: 4vw;
-  bottom: 18vh;
-  padding: 15px;
-  text-transform: uppercase;
-  vertical-align: middle;
-  font-size: clamp(1.2rem, 4vw, 0.2rem);
-}
-
-.dropdown-item {
-  cursor: pointer;
-}
-
-.button-options {
+  right: 0;
+  bottom: 110%;
+  left: auto;
+  transform: none;
+  min-width: 210px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px) saturate(1.2);
+  border-radius: 1.3em;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.13), 0 2px 8px 0 rgba(0, 0, 0, 0.13);
+  padding: 0.7em 0.5em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
   display: flex;
-  flex-direction: row;
-  transition: opacity 0.4s ease-in-out;
+  flex-direction: column;
+  gap: 0.2em;
 }
 
-.button-options .dropdown-item {
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  font-size: 30px;
-  padding: 2px;
-  transition: 0.2s ease-in-out;
+.apple-dropdown.show {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.button-options .dropdown-item {
-  display: inline-block;
-  padding: 10px 10px;
-  margin: 5px 5px;
-  background-color: var(--bg);
+.apple-dropdown .dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  padding: 0.7em 1.2em;
+  border-radius: 1em;
+  font-size: 1.05em;
   color: var(--body_color);
-  border: 2px solid var(--body_color);
-  border-radius: 5px;
-  text-align: center;
+  background: transparent;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background 0.18s, color 0.18s, transform 0.13s;
+  outline: none;
 }
 
-.button-options .dropdown-item:hover {
-  background-color: var(--body_bg);
-  transform: scale(1.1);
-  transition: 0.2s ease-in-out;
+.apple-dropdown .dropdown-item:hover,
+.apple-dropdown .dropdown-item:focus {
+  color: #707070;
+  transform: scale(1.04);
+}
+
+.apple-dropdown .dropdown-item:active {
+  background: rgba(0, 0, 0, 0.13);
+  color: #222;
+  transform: scale(0.98);
+}
+
+.apple-dropdown .dropdown-item-icon {
+  font-size: 1.25em;
+}
+
+.apple-dropdown .dropdown-item-label {
+  font-weight: 500;
+}
+
+.apple-dropdown.dark {
+  background: rgba(30, 30, 30, 0.85);
+  color: #f5f5f7;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.22), 0 2px 8px 0 rgba(0, 0, 0, 0.18);
+}
+
+.apple-dropdown.dark .dropdown-item {
+  color: #f5f5f7;
+}
+
+.apple-dropdown.dark .dropdown-item:hover,
+.apple-dropdown.dark .dropdown-item:focus {
+  color: #b3b3b3;
+}
+
+@media (max-width: 600px) {
+  .apple-dropdown-container {
+    right: 3vw;
+    bottom: 3vh;
+  }
+  .apple-contact-btn {
+    font-size: 1em;
+    padding: 0.6em 1.1em;
+    min-width: 120px;
+    min-height: 44px;
+  }
+  .apple-dropdown {
+    min-width: 150px;
+    padding: 0.5em 0.2em;
+    right: 0;
+    left: auto;
+  }
 }

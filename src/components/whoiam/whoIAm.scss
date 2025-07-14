@@ -37,12 +37,17 @@
       grid-template-areas:
         "image"
         "text";
+      justify-items: center;
+      text-align: center;
     }
   }
 
   .content-text {
     @media (max-width: 768px) {
       grid-area: text;
+      text-align: center;
+      width: 100%;
+      max-width: 500px;
     }
 
     .intro-text {
@@ -86,6 +91,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.8rem;
+        justify-content: center;
 
         .skill-tag {
           background: var(--body_color);
@@ -168,7 +174,6 @@
     }
   }
 
-  // Dark mode adjustments
   .dark-mode & {
     .skill-tag {
       background: var(--body_color);
@@ -182,7 +187,6 @@
     }
   }
 
-  // Light mode adjustments
   .light-mode & {
     .skill-tag {
       background: var(--body_color);

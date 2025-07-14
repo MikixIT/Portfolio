@@ -87,8 +87,9 @@ function WhoIAm() {
               </p>
 
               <p>
-                Specialized in React, JavaScript and modern technologies, I
-                transform ideas into digital realities that inspire and engage.
+                Specialized in <strong>Vue, React, Nuxt.js, Next.js</strong>,
+                JavaScript-based and modern technologies, I transform ideas into
+                digital realities that inspire and engage.
               </p>
             </div>
 
@@ -99,14 +100,12 @@ function WhoIAm() {
                 <span className="skill-tag">Next.js</span>
                 <span className="skill-tag">Vue</span>
                 <span className="skill-tag">Nuxt.js</span>
-                <span className="skill-tag">Tailwind</span>
-                <span className="skill-tag">JavaScript</span>
                 <span className="skill-tag">TypeScript</span>
-                <span className="skill-tag">Node.js</span>
-                <span className="skill-tag">GSAP</span>
+                <span className="skill-tag">JavaScript</span>
                 <span className="skill-tag">Tailwind</span>
-                <span className="skill-tag">SASS</span>
-                <span className="skill-tag">Git</span>
+                <span className="skill-tag">GSAP</span>
+                <span className="skill-tag">Node.js</span>
+                <span className="skill-tag">PostgreSQL</span>
               </div>
             </div>
           </div>
