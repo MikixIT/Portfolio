@@ -104,7 +104,6 @@ function Header() {
             style={{ background: "transparent" }}
           />
         </a>
-        x
         <a
           href="https://www.linkedin.com/in/michaeltorresdev/"
           target="_blank"
