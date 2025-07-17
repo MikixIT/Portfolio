@@ -2,26 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import "./contactButton.scss";
 import { VscComment } from "react-icons/vsc";
 import { gsap } from "gsap";
+import { useDarkMode } from "../../hooks/useDarkMode";
 
 function ContactButton({ calendarButtonClicked }) {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem("darkMode");
-    return saved === null ? true : saved === "true";
-  });
+  const [isDarkMode] = useDarkMode();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const buttonRef = useRef(null);
   const dropdownRef = useRef(null);
-
-  useEffect(() => {
-    const body = document.body;
-    const observer = new MutationObserver(() => {
-      setIsDarkMode(body.classList.contains("dark-mode"));
-    });
-    observer.observe(body, { attributes: true, attributeFilter: ["class"] });
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   useEffect(() => {
     if (!buttonRef.current || !dropdownRef.current) return;

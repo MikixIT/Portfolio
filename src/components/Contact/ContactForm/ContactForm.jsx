@@ -4,12 +4,10 @@ import Swal from "sweetalert2";
 import gsap from "gsap";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { useDarkMode } from "../../../hooks/useDarkMode";
 
 function ContactForm({ buttonContactClicked }) {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem("darkMode");
-    return saved === null ? true : saved === "true";
-  });
+  const [isDarkMode] = useDarkMode();
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -31,24 +29,6 @@ function ContactForm({ buttonContactClicked }) {
         },
       }
     );
-  }, []);
-
-  useEffect(() => {
-    const body = document.body;
-
-    const updateDarkMode = () => {
-      setIsDarkMode(body.classList.contains("dark-mode"));
-    };
-
-    const observer = new MutationObserver(updateDarkMode);
-
-    observer.observe(body, { attributes: true, attributeFilter: ["class"] });
-
-    updateDarkMode();
-
-    return () => {
-      observer.disconnect();
-    };
   }, []);
 
   const onSubmit = async (event) => {

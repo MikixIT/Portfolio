@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import "./modal.scss";
+import { useDarkMode } from "../../hooks/useDarkMode";
 
 function Modal({
   titleModal,
@@ -9,19 +10,7 @@ function Modal({
   closeModal,
 }) {
   const modalRef = useRef();
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem("darkMode");
-    return saved === null ? true : saved === "true";
-  });
-
-  useEffect(() => {
-    const body = document.body;
-    const observer = new MutationObserver(() => {
-      setIsDarkMode(body.classList.contains("dark-mode"));
-    });
-    observer.observe(body, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
+  const [isDarkMode] = useDarkMode();
 
   useEffect(() => {
     const handleClickOutside = (event) => {

@@ -5,29 +5,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
+import { useDarkMode } from "../../hooks/useDarkMode";
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Header() {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const saved = localStorage.getItem("darkMode");
-    return saved === null ? true : saved === "true";
-  });
-
+  const [isDarkMode] = useDarkMode();
   const headerIconsRef = useRef(null);
-
-  useEffect(() => {
-    const body = document.body;
-    const observer = new MutationObserver(() => {
-      setIsDarkMode(body.classList.contains("dark-mode"));
-    });
-
-    observer.observe(body, { attributes: true, attributeFilter: ["class"] });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   useEffect(() => {
     const header = document.querySelector(".header-wrap");
@@ -120,8 +104,9 @@ function Header() {
             style={{ background: "transparent" }}
           />
         </a>
+        x
         <a
-          href="https://www.linkedin.com/in/michaeltorresdeveloper/"
+          href="https://www.linkedin.com/in/michaeltorresdev/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
