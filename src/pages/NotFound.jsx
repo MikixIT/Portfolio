@@ -154,7 +154,7 @@ function NotFound() {
         Go back home
       </a>
       <a
-        href="https://michaeltorres.dev"
+        href="https://michaeltorresdev.dev"
         style={{
           textDecoration: "none",
           backgroundColor: "transparent",
