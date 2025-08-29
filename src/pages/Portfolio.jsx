@@ -127,7 +127,7 @@ export default function Portfolio() {
         subtitleModal={"Let's talk about your project."}
         isOpenModal={modalStatus}
         closeModal={closeModal}
-        contentModal={<BookCall />}
+        contentModal={modalStatus && <BookCall key={modalStatus} />}
       />
     </>
   );

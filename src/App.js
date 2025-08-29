@@ -1,13 +1,8 @@
 import "./App.scss";
 import React, { useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Portfolio from "./pages/Portfolio";
-import Blog from "./pages/Blog";
+import Blog from "./pages/Blog/Blog";
 import NotFound from "./pages/NotFound";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

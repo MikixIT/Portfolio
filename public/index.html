@@ -11,6 +11,50 @@
     <meta name="theme-color" content="#000000" />
     <meta name="description" content="Michael Torres Dev Portfolio" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.ico" />
+    
+    <!-- Preload and optimize font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    
+    <!-- Prevent FOUC by initializing dark mode before React -->
+    <script>
+      (function() {
+        const saved = localStorage.getItem("darkMode");
+        const isDarkMode = saved === null ? true : saved === "true";
+        if (isDarkMode) {
+          document.documentElement.classList.add("dark-mode");
+          document.documentElement.style.setProperty('--body_bg', '#111');
+          document.documentElement.style.setProperty('--body_color', 'rgba(255, 255, 255, 0.967)');
+          document.documentElement.style.setProperty('--link_color', 'rgb(255, 220, 220)');
+        } else {
+          document.documentElement.classList.add("light-mode");
+          document.documentElement.style.setProperty('--body_bg', '#ffffff');
+          document.documentElement.style.setProperty('--body_color', '#111');
+          document.documentElement.style.setProperty('--link_color', 'grey');
+        }
+        document.documentElement.style.background = 'var(--body_bg)';
+        document.documentElement.style.color = 'var(--body_color)';
+      })();
+    </script>
+    
+    <style>
+      /* Immediate styles to prevent flash */
+      html, body {
+        background: var(--body_bg) !important;
+        color: var(--body_color) !important;
+        font-family: 'Anton', sans-serif !important;
+        margin: 0;
+        padding: 0;
+      }
+      
+      /* Font display optimization */
+      @font-face {
+        font-family: 'Anton';
+        font-display: swap;
+      }
+    </style>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/

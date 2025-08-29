@@ -1,7 +1,7 @@
 :root {
-  --body_bg: rgba(255, 255, 255, 0.967);
-  --body_color: #111;
-  --link_color: grey;
+  --body_bg: #111; /* Default to dark mode to prevent flash */
+  --body_color: rgba(255, 255, 255, 0.967);
+  --link_color: rgb(255, 220, 220);
 }
 
 * {
@@ -26,7 +26,7 @@ body {
 }
 
 .light-mode {
-  --body_bg: rgba(255, 255, 255, 0.967);
+  --body_bg: #ffffff;
   --body_color: #111;
   --link_color: grey;
 }
@@ -70,7 +70,7 @@ html {
     max-width: 100%;
   }
   .type-writer {
-    background: var(--body_bg);
+    background: transparent;
     font-size: clamp(2rem, 6vw, 8rem);
     white-space: nowrap;
     overflow: hidden;

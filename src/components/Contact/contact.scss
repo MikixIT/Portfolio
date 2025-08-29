@@ -4,6 +4,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-color: var(--body_bg);
+  color: var(--body_color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   h2 {
     text-align: center;
@@ -14,5 +17,6 @@
     font-family: "Anton", sans-serif;
     align-items: center;
     cursor: default;
+    color: var(--body_color);
   }
 }

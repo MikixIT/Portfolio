@@ -3,6 +3,7 @@ import "./bookCall.scss";
 
 const BookCall = () => {
   useEffect(() => {
+    // Check if script already exists before adding
     if (
       !document.querySelector(
         'script[src="https://assets.calendly.com/assets/external/widget.js"]'
@@ -13,6 +14,16 @@ const BookCall = () => {
       script.async = true;
       document.body.appendChild(script);
     }
+
+    // Cleanup function
+    return () => {
+      const script = document.querySelector(
+        'script[src="https://assets.calendly.com/assets/external/widget.js"]'
+      );
+      if (script) {
+        document.body.removeChild(script);
+      }
+    };
   }, []);
 
   return (
@@ -20,7 +31,6 @@ const BookCall = () => {
       <div
         className="calendly-inline-widget"
         data-url="https://calendly.com/michaeltorresdeveloper/30min"
-        style={{ minWidth: "420px", height: "630px" }}
       ></div>
     </div>
   );
