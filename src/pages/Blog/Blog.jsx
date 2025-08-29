@@ -12,7 +12,7 @@ function Blog() {
       <DarkMode />
       <Header />
       <main className="blog-content">
-        <h1 className="blog-title">Michael's Blog</h1>
+        <h1 className="blog-title">MICHAEL'S BLOG</h1>
         <span className="type-writer-blog">
           <Typewriter
             words={[
@@ -36,7 +36,7 @@ function Blog() {
           />
         </span>
         <div className="blog-list">
-          <h1 className="posts-best-title">LATEST POSTS:</h1>
+          <h1 className="posts-best-title">LATESTS POSTS:</h1>
           {posts.map((post) => (
             <article key={post.id} className="blog-post">
               <h2>

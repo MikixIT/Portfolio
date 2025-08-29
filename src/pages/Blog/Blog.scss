@@ -33,15 +33,15 @@
   background: transparent;
   text-align: center;
   font-size: clamp(2rem, 2vw, 2rem);
-  white-space: nowrap;
   overflow: hidden;
   font-weight: 700;
   font-family: "Anton", sans-serif;
   color: var(--body_color);
   line-height: 1;
   pointer-events: none;
-  padding-bottom: 100px;
+  padding-bottom: 4em;
   margin-bottom: 20px;
+  height: 2em;
 }
 
 .blog-list {
