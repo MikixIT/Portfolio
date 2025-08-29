@@ -123,7 +123,7 @@ export default function Portfolio() {
         <Footer />
       </section>
       <Modal
-        titleModal={"Booking a short call with me!"}
+        titleModal={"Booking a short call with me"}
         subtitleModal={"Let's talk about your project."}
         isOpenModal={modalStatus}
         closeModal={closeModal}

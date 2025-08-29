@@ -39,7 +39,7 @@ function Modal({
 
     tl.to(overlayRef.current, {
       opacity: 1,
-      duration: 0.3,
+      duration: 0.1,
       ease: "power2.out",
     })
       .to(
@@ -80,16 +80,15 @@ function Modal({
     });
 
     tl.to(headerRef.current?.children || [], {
-      y: -20,
+      y: 20,
       opacity: 0,
-      duration: 0.2,
-      stagger: 0.05,
-      ease: "power2.in",
+      duration: 0.5,
+      ease: "back.in(1.2)",
     })
       .to(
         contentRef.current,
         {
-          scale: 0.8,
+          scale: 0.4,
           opacity: 0,
           rotationY: 15,
           y: -50,
@@ -102,6 +101,7 @@ function Modal({
         overlayRef.current,
         {
           opacity: 0,
+          y: -20,
           duration: 0.3,
           ease: "power2.in",
         },

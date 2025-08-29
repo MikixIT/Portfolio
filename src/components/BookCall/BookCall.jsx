@@ -3,7 +3,7 @@ import "./bookCall.scss";
 
 const BookCall = () => {
   useEffect(() => {
-    // Check if script already exists before adding
+    // ---- SCRIPT Calendly ----
     if (
       !document.querySelector(
         'script[src="https://assets.calendly.com/assets/external/widget.js"]'
@@ -15,7 +15,6 @@ const BookCall = () => {
       document.body.appendChild(script);
     }
 
-    // Cleanup function
     return () => {
       const script = document.querySelector(
         'script[src="https://assets.calendly.com/assets/external/widget.js"]'
