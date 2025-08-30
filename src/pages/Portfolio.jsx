@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Typewriter } from "react-simple-typewriter";
@@ -15,6 +16,7 @@ import ScrollVelocity from "../components/Animations/scroll-velocity";
 import { useLenis } from "../hooks/useLenis";
 import Footer from "../components/Footer/Footer";
 import WhoIAm from "../components/whoiam/WhoIAm";
+import BackToBubble from "../components/BackToBubble/BackToBubble";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,7 +28,7 @@ export default function Portfolio() {
   const openModal = () => setModalStatus(true);
   const closeModal = () => setModalStatus(false);
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.from("h1", {
       duration: 1,
       y: 100,
@@ -54,7 +56,7 @@ export default function Portfolio() {
     });
   }, []);
 
-  useEffect(() => {
+  useGSAP(() => {
     if (lenis) {
       lenis.on("scroll", ScrollTrigger.update);
 
@@ -69,6 +71,13 @@ export default function Portfolio() {
   return (
     <>
       <Header />
+      <BackToBubble
+        position="right"
+        topText="VISIT"
+        bottomText="MY BLOG! 🚀"
+        navigateTo="/blog"
+        absolute={true}
+      />
       <section className="main-container">
         <DarkMode />
         <h1>

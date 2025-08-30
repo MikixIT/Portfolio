@@ -17,6 +17,26 @@ const posts = [
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi dolore aperiam ratione nulla ullam facilis repellendus esse placeat. Dolore omnis non nemo iste ea quidem, accusantium sequi exercitationem possimus doloremque!",
     slug: "/blog/post/secondo-post",
   },
+
+  {
+    id: 3,
+    title: "Terzo Post",
+    date: "20 Agosto 2025",
+    description: "Qualche riga introduttiva per incuriosire il lettore.",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi dolore aperiam ratione nulla ullam facilis repellendus esse placeat. Dolore omnis non nemo iste ea quidem, accusantium sequi exercitationem possimus doloremque!",
+    slug: "/blog/post/secondo-post",
+  },
+  
+  {
+    id: 4,
+    title: "Quarto Post",
+    date: "20 Agosto 2025",
+    description: "Qualche riga introduttiva per incuriosire il lettore.",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi dolore aperiam ratione nulla ullam facilis repellendus esse placeat. Dolore omnis non nemo iste ea quidem, accusantium sequi exercitationem possimus doloremque!",
+    slug: "/blog/post/secondo-post",
+  },
 ];
 
 export default posts;

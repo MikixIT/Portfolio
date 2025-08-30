@@ -2,6 +2,7 @@ import "./Blog.scss";
 import React from "react";
 import DarkMode from "../../components/DarkMode/DarkMode";
 import Header from "../../components/Header/Header";
+import BackToBubble from "../../components/BackToBubble/BackToBubble";
 import { Link } from "react-router-dom";
 import posts from "../../data/posts";
 import { Typewriter } from "react-simple-typewriter";
@@ -11,6 +12,7 @@ function Blog() {
     <div className="blog-page">
       <DarkMode />
       <Header />
+      <BackToBubble position="left" />
       <main className="blog-content">
         <h1 className="blog-title">MICHAEL'S BLOG</h1>
         <span className="type-writer-blog">
