@@ -14,6 +14,7 @@ function Blog() {
       <Header />
       <BackToBubble position="left" />
       <main className="blog-content">
+        <h1 className="blog-beta">BETA 👀</h1>
         <h1 className="blog-title">MICHAEL'S BLOG</h1>
         <span className="type-writer-blog">
           <Typewriter

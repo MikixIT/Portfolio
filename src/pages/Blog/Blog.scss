@@ -29,6 +29,33 @@
   }
 }
 
+.blog-beta {
+  font-size: clamp(2rem, 10vw, 80px);
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  color: var(--body_color);
+  margin: 0;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(1px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+  cursor: none;
+
+  @media (max-width: 768px) {
+    font-size: clamp(3rem, 20vw, 200px);
+  }
+}
+
+.blog-beta:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05) rotate(0.5deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  letter-spacing: 1em;
+}
+
 .type-writer-blog {
   background: transparent;
   text-align: center;
