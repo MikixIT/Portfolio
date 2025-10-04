@@ -1,114 +1,99 @@
-.back-to-bubble {
+.back-bubble {
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1000;
+  top: 30%;
+  z-index: 100;
   cursor: pointer;
+  transition: transform 1.6s ease;
 
-  &.absolute {
-    position: absolute;
+  &.right {
+    right: 0;
+    transform: translateX(90%);
+    &:hover {
+      transform: translateX(20%);
+    }
   }
 
   &.left {
-    left: -240px;
+    left: 0;
+    transform: translateX(-90%);
+    &:hover {
+      transform: translateX(-20%);
+    }
   }
 
-  &.right {
-    right: -240px;
-  }
-
-  .circle {
-    width: 300px;
-    height: 300px;
+  .white-bubble {
+    width: clamp(12rem, 35vw, 24rem);
+    height: clamp(12rem, 35vw, 24rem);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     border-radius: 50%;
-    background: var(--body_color);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2);
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 4px 16px rgba(0, 0, 0, 0.04),
+      0 2px 8px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-    .dark-mode & {
-      box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1),
-        0 10px 20px rgba(255, 255, 255, 0.05);
+    &:hover {
+      transform: translateY(-4px);
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.08) 50%,
+        rgba(255, 255, 255, 0.04) 100%
+      );
+      backdrop-filter: blur(25px) saturate(200%);
+      -webkit-backdrop-filter: blur(25px) saturate(200%);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.08),
+        0 12px 32px rgba(0, 0, 0, 0.06), 0 6px 16px rgba(0, 0, 0, 0.04),
+        0 2px 8px rgba(0, 0, 0, 0.02), inset 0 2px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.15), 0 0 32px rgba(255, 255, 255, 0.08);
     }
 
-    .circle-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .bubble-emoji {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      line-height: 1;
+      user-select: none;
+      filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.1));
+      text-decoration: none;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
+    .bubble-content {
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      user-select: none;
       text-align: center;
-      opacity: 0;
+      text-decoration: none;
+      text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
 
-      .back-text {
-        font-family: "Anton", sans-serif;
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--body_bg);
-        letter-spacing: 1px;
-        margin-bottom: 4px;
-        line-height: 1;
-      }
+      a {
+        font-size: clamp(1rem, 3.5vw, 1.6rem);
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.9);
+        text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+        transition: color 0.3s ease;
+        display: inline-block;
 
-      .portfolio-text {
-        font-family: "Anton", sans-serif;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--body_bg);
-        letter-spacing: 1px;
-        line-height: 1;
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .back-to-bubble {
-    &.left {
-      left: -120px;
-    }
-
-    &.right {
-      right: -120px;
-    }
-
-    .circle {
-      width: 200px;
-      height: 200px;
-
-      .circle-content {
-        .back-text {
-          font-size: 1rem;
-        }
-
-        .portfolio-text {
-          font-size: 1.2rem;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .back-to-bubble {
-    &.left {
-      left: -100px;
-    }
-
-    &.right {
-      right: -100px;
-    }
-
-    .circle {
-      width: 160px;
-      height: 160px;
-
-      .circle-content {
-        .back-text {
-          font-size: 0.8rem;
-        }
-
-        .portfolio-text {
-          font-size: 1rem;
+        &:hover {
+          color: rgba(255, 255, 255, 1);
+          text-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.15);
         }
       }
     }

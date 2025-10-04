@@ -71,19 +71,12 @@ export default function Portfolio() {
   return (
     <>
       <Header />
-      <BackToBubble
-        position="right"
-        topText="VISIT"
-        bottomText="MY BLOG! 🚀"
-        navigateTo="/blog"
-        absolute={true}
-      />
-      <section className="main-container">
+      <section className='main-container'>
         <DarkMode />
         <h1>
           MICHAEL <br /> TORRES <br />
         </h1>
-        <span className="type-writer">
+        <span className='type-writer'>
           <Typewriter
             words={[
               ".DEV",
@@ -99,14 +92,16 @@ export default function Portfolio() {
             ]}
             loop={999}
             cursor
-            cursorStyle="|"
+            cursorStyle='|'
             typeSpeed={400}
             deleteSpeed={60}
             delaySpeed={800}
           />
         </span>
+        <BackToBubble></BackToBubble>
+
         <TextCursor
-          text="scroll"
+          text='scroll'
           delay={0.01}
           spacing={100}
           followMouseDirection={true}
@@ -114,20 +109,20 @@ export default function Portfolio() {
           exitDuration={0.1}
           maxPoints={15}
         />
-        <div className="contact-button">
+        <div className='contact-button'>
           <ContactButton calendarButtonClicked={openModal} />
         </div>
       </section>
-      <section className="main-content">
+      <section className='main-content'>
         <WhoIAm />
         <ProjectShow />
         <ScrollVelocity
           texts={["EXPLORE MY PROJECTS ", "CHECK THEM OUT"]}
           velocity={50}
-          className="custom-scroll-text"
+          className='custom-scroll-text'
         />
       </section>
-      <section className="contact-section">
+      <section className='contact-section'>
         <Contact buttonContactClicked={openModal} />
         <Footer />
       </section>

@@ -9,14 +9,19 @@ import { Typewriter } from "react-simple-typewriter";
 
 function Blog() {
   return (
-    <div className="blog-page">
+    <div className='blog-page'>
       <DarkMode />
       <Header />
-      <BackToBubble position="left" />
-      <main className="blog-content">
-        <h1 className="blog-beta">BETA 👀</h1>
-        <h1 className="blog-title">MICHAEL'S BLOG</h1>
-        <span className="type-writer-blog">
+      <main className='blog-content'>
+        <h1 className='blog-beta'>BETA 👀</h1>
+        <h1 className='blog-title'>MICHAEL'S BLOG</h1>
+        <BackToBubble
+          position='left'
+          link='/'
+          label='BACK TO PORTFOLIO'
+          emoji='⬅️'
+        />
+        <span className='type-writer-blog'>
           <Typewriter
             words={[
               "A dev trying to make sense of the internet",
@@ -32,21 +37,21 @@ function Blog() {
             ]}
             loop={999}
             cursor
-            cursorStyle="|"
+            cursorStyle='|'
             typeSpeed={120}
             deleteSpeed={40}
             delaySpeed={800}
           />
         </span>
-        <div className="blog-list">
-          <h1 className="posts-best-title">LATESTS POSTS:</h1>
+        <div className='blog-list'>
+          <h1 className='posts-best-title'>LATESTS POSTS:</h1>
           {posts.map((post) => (
-            <article key={post.id} className="blog-post">
+            <article key={post.id} className='blog-post'>
               <h2>
                 <Link to={post.slug}>{post.title}</Link>
               </h2>
-              <time className="blog-date">{post.date}</time>
-              <p className="blog-description">{post.description}</p>
+              <time className='blog-date'>{post.date}</time>
+              <p className='blog-description'>{post.description}</p>
             </article>
           ))}
         </div>
