@@ -15,6 +15,7 @@
     "@testing-library/user-event": "^13.2.1",
     "animate.css": "^4.1.1",
     "boxicons": "^2.1.4",
+    "canvas-confetti": "^1.9.3",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",

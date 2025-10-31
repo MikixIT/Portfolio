@@ -28,24 +28,33 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.15);
+    background: color-mix(in srgb, var(--body_color) 5%, transparent);
     backdrop-filter: blur(60px);
     -webkit-backdrop-filter: blur(60px);
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     color: var(--body_color);
+    box-shadow: 0 -8px 20px color-mix(in srgb, var(--body_color) 5%, transparent),
+      0 -4px 10px color-mix(in srgb, var(--body_color) 3%, transparent);
     text-decoration: none;
 
     &:hover {
       transform: scale(1.12) translateY(-3px);
-      background: rgba(0, 0, 0, 0.25);
+      background: color-mix(in srgb, var(--body_color) 8%, transparent);
       backdrop-filter: blur(25px);
       -webkit-backdrop-filter: blur(25px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 -15px 35px color-mix(in srgb, var(--body_color) 30%, transparent),
+        0 -8px 20px color-mix(in srgb, var(--body_color) 20%, transparent),
+        0 -4px 10px color-mix(in srgb, var(--body_color) 10%, transparent),
+        0 12px 30px rgba(0, 0, 0, 0.15);
     }
 
     &:active {
       transform: scale(1.08) translateY(-1px);
       transition: all 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 -10px 25px color-mix(in srgb, var(--body_color) 25%, transparent),
+        0 -6px 15px color-mix(in srgb, var(--body_color) 15%, transparent),
+        0 -3px 8px color-mix(in srgb, var(--body_color) 8%, transparent),
+        0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     box-icon {
