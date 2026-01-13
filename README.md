@@ -31,6 +31,6 @@ I'm always eager to connect with potential collaborators and employers. If you'r
 
 <br>
 
-Thanks for your Time! 🚀
+Thank you for your Time!  🚀
 
-- Michael Torres
+-Michael 
