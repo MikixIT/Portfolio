@@ -7,65 +7,196 @@ import ScrollIndicator from "../ScrollIndicator/ScrollIndicator";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const skills = [
+  "React",
+  "Next.js",
+  "Vue",
+  "Nuxt.js",
+  "TypeScript",
+  "JavaScript",
+  "Tailwind",
+  "GSAP",
+  "Node.js",
+  "PostgreSQL",
+  "Cypress Testing",
+  "Python",
+  "Prompt Engineering",
+  "Django"
+];
+
 function WhoIAm() {
   const titleRef = useRef(null);
   const contentRef = useRef(null);
   const imageRef = useRef(null);
+  const skillRefs = useRef([]);
+  const floatTweensRef = useRef([]);
+  const dragStateRef = useRef({
+    activeIndex: null,
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+    originX: 0,
+    originY: 0,
+  });
 
   useEffect(() => {
-    gsap.fromTo(
-      titleRef.current,
-      { opacity: 0, y: 100 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 100%",
-          end: "bottom 80%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        titleRef.current,
+        { opacity: 0, y: 100 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 100%",
+            end: "bottom 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      contentRef.current,
-      { opacity: 0, y: 50 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        delay: 0.3,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: contentRef.current,
-          start: "top 95%",
-          end: "bottom 70%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: contentRef.current,
+            start: "top 95%",
+            end: "bottom 70%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
 
-    gsap.fromTo(
-      imageRef.current,
-      { opacity: 0, scale: 0.8 },
-      {
-        opacity: 1,
-        scale: 1,
-        duration: 1.2,
-        delay: 0.6,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: imageRef.current,
-          start: "top 85%",
-          end: "bottom 60%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
+      gsap.fromTo(
+        imageRef.current,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.2,
+          delay: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: imageRef.current,
+            start: "top 85%",
+            end: "bottom 60%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      floatTweensRef.current = skillRefs.current.map((skill, index) => {
+        if (!skill) return null;
+
+        return gsap.to(skill, {
+          y: gsap.utils.random(-12, 12),
+          x: gsap.utils.random(-8, 8),
+          rotation: gsap.utils.random(-3, 3),
+          duration: gsap.utils.random(2.8, 4.4),
+          ease: "sine.inOut",
+          repeat: -1,
+          yoyo: true,
+          delay: index * 0.07,
+        });
+      });
+    });
+
+    return () => {
+      floatTweensRef.current.forEach((tween) => tween?.kill());
+      ctx.revert();
+    };
   }, []);
+
+  const handlePointerDown = (index) => (event) => {
+    const skill = skillRefs.current[index];
+    if (!skill) return;
+
+    dragStateRef.current = {
+      activeIndex: index,
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      originX: Number(gsap.getProperty(skill, "x")) || 0,
+      originY: Number(gsap.getProperty(skill, "y")) || 0,
+    };
+
+    floatTweensRef.current[index]?.pause();
+    skill.setPointerCapture(event.pointerId);
+    skill.dataset.dragging = "true";
+
+    gsap.to(skill, {
+      scale: 1.04,
+      duration: 0.18,
+      ease: "power2.out",
+    });
+  };
+
+  const handlePointerMove = (index) => (event) => {
+    const dragState = dragStateRef.current;
+    if (
+      dragState.activeIndex !== index ||
+      dragState.pointerId !== event.pointerId
+    ) {
+      return;
+    }
+
+    const skill = skillRefs.current[index];
+    if (!skill) return;
+
+    const deltaX = gsap.utils.clamp(-18, 18, event.clientX - dragState.startX);
+    const deltaY = gsap.utils.clamp(-14, 14, event.clientY - dragState.startY);
+
+    gsap.set(skill, {
+      x: dragState.originX + deltaX,
+      y: dragState.originY + deltaY,
+      rotation: deltaX * 0.08,
+    });
+  };
+
+  const handlePointerUp = (index) => (event) => {
+    const dragState = dragStateRef.current;
+    if (
+      dragState.activeIndex !== index ||
+      dragState.pointerId !== event.pointerId
+    ) {
+      return;
+    }
+
+    const skill = skillRefs.current[index];
+    if (!skill) return;
+
+    skill.releasePointerCapture(event.pointerId);
+    skill.dataset.dragging = "false";
+
+    gsap.to(skill, {
+      x: 0,
+      y: 0,
+      rotation: 0,
+      scale: 1,
+      duration: 0.65,
+      ease: "elastic.out(1, 0.45)",
+    });
+
+    floatTweensRef.current[index]?.resume();
+
+    dragStateRef.current = {
+      activeIndex: null,
+      pointerId: null,
+      startX: 0,
+      startY: 0,
+      originX: 0,
+      originY: 0,
+    };
+  };
 
   return (
     <section className="who-i-am">
@@ -96,16 +227,21 @@ function WhoIAm() {
             <div className="skills">
               <h3>Skills</h3>
               <div className="skills-grid">
-                <span className="skill-tag">React</span>
-                <span className="skill-tag">Next.js</span>
-                <span className="skill-tag">Vue</span>
-                <span className="skill-tag">Nuxt.js</span>
-                <span className="skill-tag">TypeScript</span>
-                <span className="skill-tag">JavaScript</span>
-                <span className="skill-tag">Tailwind</span>
-                <span className="skill-tag">GSAP</span>
-                <span className="skill-tag">Node.js</span>
-                <span className="skill-tag">PostgreSQL</span>
+                {skills.map((skill, index) => (
+                  <span
+                    key={skill}
+                    className="skill-tag"
+                    ref={(element) => {
+                      skillRefs.current[index] = element;
+                    }}
+                    onPointerDown={handlePointerDown(index)}
+                    onPointerMove={handlePointerMove(index)}
+                    onPointerUp={handlePointerUp(index)}
+                    onPointerCancel={handlePointerUp(index)}
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
