@@ -17,6 +17,7 @@ import { useLenis } from "../hooks/useLenis";
 import Footer from "../components/Footer/Footer";
 import WhoIAm from "../components/whoiam/WhoIAm";
 import BackToBubble from "../components/BackToBubble/BackToBubble";
+import JobExperience from "../components/JobExperience/JobExperience";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -115,6 +116,7 @@ export default function Portfolio() {
       </section>
       <section className='main-content'>
         <WhoIAm />
+        <JobExperience />
         <ProjectShow />
         <ScrollVelocity
           texts={["EXPLORE MY PROJECTS ", "CHECK THEM OUT"]}
