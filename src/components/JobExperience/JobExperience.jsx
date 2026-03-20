@@ -346,9 +346,9 @@ function JobExperience() {
         <div className="job-experience__heading"> 
           <h2 ref={titleRef}>Job Experience</h2>
           <p className="job-experience__lead" ref={leadRef}>
-            From freelance delivery to e-commerce platforms, I turn business
-            goals into fast interfaces, clear frontend systems and measurable
-            improvements.
+          I turn complex AI-powered pathology tools systems and web platforms into fast, 
+          intuitive interfaces, with a strong focus on UX, 
+          performance and frontend architecture.
           </p>
         </div>
 
