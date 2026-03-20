@@ -360,47 +360,36 @@
 
   @media (max-width: 960px) {
     &::before {
-      background:
-        radial-gradient(
-          circle at 50% 30%,
-          rgba(255, 255, 255, 0.08),
-          transparent 24%
-        ),
-        linear-gradient(
-          90deg,
-          transparent 0,
-          transparent 20px,
-          var(--job-grid) 20px,
-          var(--job-grid) 21px,
-          transparent 21px,
-          transparent 100%
-        );
+      background: radial-gradient(
+        circle at 50% 30%,
+        rgba(255, 255, 255, 0.08),
+        transparent 24%
+      );
     }
 
     .job-experience__timeline {
-      padding-left: 0.2rem;
+      padding-left: 0;
     }
 
     .job-experience__rail {
-      left: 20px;
-      transform: none;
+      display: none;
     }
 
     .experience-row {
       display: block;
-      padding-left: 2.9rem;
+      padding-left: 0;
     }
 
     .experience-row__middle {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 40px;
-      justify-content: center;
+      display: none;
     }
 
     .experience-row__slot {
       display: block;
+    }
+
+    .experience-row__slot:empty {
+      display: none;
     }
 
     .experience-card {

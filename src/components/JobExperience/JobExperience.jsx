@@ -152,6 +152,9 @@ function JobExperience() {
     canDragRef.current =
       typeof window !== "undefined" &&
       window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const isSimpleMobile =
+      typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 960px)").matches;
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
@@ -207,7 +210,7 @@ function JobExperience() {
       cardRefs.current.forEach((card, index) => {
         if (!card) return;
 
-        const direction = index % 2 === 0 ? -90 : 90;
+        const direction = isSimpleMobile ? 0 : index % 2 === 0 ? -90 : 90;
         const revealTargets = card.querySelectorAll(REVEAL_SELECTOR);
 
         gsap.set(card, { x: 0, y: 0, rotate: 0 });
@@ -217,8 +220,8 @@ function JobExperience() {
           {
             opacity: 0,
             x: direction,
-            y: 80,
-            rotateX: 10,
+            y: isSimpleMobile ? 48 : 80,
+            rotateX: isSimpleMobile ? 0 : 10,
             transformPerspective: 1200,
           },
           {
