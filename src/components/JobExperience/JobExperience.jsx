@@ -71,9 +71,23 @@ const experiences = [
   },
 ];
 
-function ExperienceCard({ experience, index, setCardRef }) {
+function ExperienceCard({
+  experience,
+  index,
+  setCardRef,
+  onPointerDown,
+  onPointerMove,
+  onPointerUp,
+}) {
   return (
-    <div className="experience-card" ref={setCardRef(index)}>
+    <div
+      className="experience-card"
+      ref={setCardRef(index)}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
+    >
       <div className="experience-card__header">
         <div className="experience-card__title-block">
           <p className="experience-card__period">{experience.period}</p>
@@ -122,12 +136,23 @@ function JobExperience() {
   const leadRef = useRef(null);
   const railFillRef = useRef(null);
   const cardRefs = useRef([]);
+  const canDragRef = useRef(false);
+  const dragStateRef = useRef({
+    index: null,
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+  });
 
   const setCardRef = (index) => (element) => {
     cardRefs.current[index] = element;
   };
 
   useEffect(() => {
+    canDragRef.current =
+      typeof window !== "undefined" &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         titleRef.current,
@@ -185,6 +210,8 @@ function JobExperience() {
         const direction = index % 2 === 0 ? -90 : 90;
         const revealTargets = card.querySelectorAll(REVEAL_SELECTOR);
 
+        gsap.set(card, { x: 0, y: 0, rotate: 0 });
+
         gsap.fromTo(
           card,
           {
@@ -233,6 +260,86 @@ function JobExperience() {
     return () => ctx.revert();
   }, []);
 
+  const handlePointerDown = (index) => (event) => {
+    if (!canDragRef.current) return;
+
+    const card = cardRefs.current[index];
+    if (!card) return;
+
+    dragStateRef.current = {
+      index,
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+    };
+
+    card.setPointerCapture(event.pointerId);
+    card.dataset.dragging = "true";
+
+    gsap.to(card, {
+      scale: 1.01,
+      duration: 0.18,
+      ease: "power2.out",
+      overwrite: true,
+    });
+  };
+
+  const handlePointerMove = (index) => (event) => {
+    if (!canDragRef.current) return;
+
+    const dragState = dragStateRef.current;
+    if (dragState.index !== index || dragState.pointerId !== event.pointerId) {
+      return;
+    }
+
+    const card = cardRefs.current[index];
+    if (!card) return;
+
+    const x = gsap.utils.clamp(-12, 12, event.clientX - dragState.startX);
+    const y = gsap.utils.clamp(-8, 8, event.clientY - dragState.startY);
+
+    gsap.to(card, {
+      x,
+      y,
+      rotate: x * 0.08,
+      duration: 0.12,
+      ease: "power2.out",
+      overwrite: true,
+    });
+  };
+
+  const handlePointerUp = (index) => (event) => {
+    if (!canDragRef.current) return;
+
+    const dragState = dragStateRef.current;
+    if (dragState.index !== index || dragState.pointerId !== event.pointerId) {
+      return;
+    }
+
+    const card = cardRefs.current[index];
+    if (!card) return;
+
+    card.releasePointerCapture(event.pointerId);
+    card.dataset.dragging = "false";
+
+    gsap.to(card, {
+      x: 0,
+      y: 0,
+      rotate: 0,
+      scale: 1,
+      duration: 0.55,
+      ease: "elastic.out(1, 0.5)",
+      overwrite: true,
+    });
+
+    dragStateRef.current = {
+      index: null,
+      pointerId: null,
+      startX: 0,
+      startY: 0,
+    };
+  };
+
   return (
     <section className="job-experience" ref={sectionRef}>
       <div className="job-experience__container">
@@ -271,6 +378,9 @@ function JobExperience() {
                         experience={experience}
                         index={index}
                         setCardRef={setCardRef}
+                        onPointerDown={handlePointerDown(index)}
+                        onPointerMove={handlePointerMove(index)}
+                        onPointerUp={handlePointerUp(index)}
                       />
                     ) : null}
                   </div>
@@ -285,6 +395,9 @@ function JobExperience() {
                         experience={experience}
                         index={index}
                         setCardRef={setCardRef}
+                        onPointerDown={handlePointerDown(index)}
+                        onPointerMove={handlePointerMove(index)}
+                        onPointerUp={handlePointerUp(index)}
                       />
                     ) : null}
                   </div>
