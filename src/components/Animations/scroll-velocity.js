@@ -19,12 +19,35 @@ function useElementWidth(ref) {
         setWidth(ref.current.offsetWidth);
       }
     }
+
     updateWidth();
+
+    const observer =
+      typeof ResizeObserver !== "undefined"
+        ? new ResizeObserver(updateWidth)
+        : null;
+
+    if (observer && ref.current) {
+      observer.observe(ref.current);
+    }
+
     window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
+
+    return () => {
+      observer?.disconnect();
+      window.removeEventListener("resize", updateWidth);
+    };
   }, [ref]);
 
   return width;
+}
+
+function getIsMobile() {
+  return typeof window !== "undefined" && window.innerWidth <= 768;
+}
+
+function clamp(value, min, max) {
+  return Math.min(max, Math.max(min, value));
 }
 
 export const ScrollVelocity = ({
@@ -41,11 +64,11 @@ export const ScrollVelocity = ({
   parallaxStyle,
   scrollerStyle,
 }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(getIsMobile);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(getIsMobile());
     };
 
     window.addEventListener("resize", handleResize);
@@ -99,6 +122,18 @@ export const ScrollVelocity = ({
 
     const copyRef = useRef(null);
     const copyWidth = useElementWidth(copyRef);
+    const [viewportWidth, setViewportWidth] = useState(0);
+
+    useLayoutEffect(() => {
+      function updateViewportWidth() {
+        setViewportWidth(window.innerWidth);
+      }
+
+      updateViewportWidth();
+      window.addEventListener("resize", updateViewportWidth);
+
+      return () => window.removeEventListener("resize", updateViewportWidth);
+    }, []);
 
     function wrap(min, max, v) {
       const range = max - min;
@@ -113,20 +148,27 @@ export const ScrollVelocity = ({
 
     const directionFactor = useRef(1);
     useAnimationFrame((t, delta) => {
+      if (!copyWidth) return;
+
+      const safeVelocityFactor = clamp(velocityFactor.get(), -4, 4);
       let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
-      if (velocityFactor.get() < 0) {
+      if (safeVelocityFactor < 0) {
         directionFactor.current = -1;
-      } else if (velocityFactor.get() > 0) {
+      } else if (safeVelocityFactor > 0) {
         directionFactor.current = 1;
       }
 
-      moveBy += directionFactor.current * moveBy * velocityFactor.get();
+      moveBy += directionFactor.current * moveBy * safeVelocityFactor;
       baseX.set(baseX.get() + moveBy);
     });
 
+    const minimumCopies = copyWidth
+      ? Math.ceil((viewportWidth * 2) / copyWidth) + 2
+      : numCopies;
+    const totalCopies = Math.max(numCopies, minimumCopies);
     const spans = [];
-    for (let i = 0; i < numCopies; i++) {
+    for (let i = 0; i < totalCopies; i++) {
       spans.push(
         <span className={className} key={i} ref={i === 0 ? copyRef : null}>
           {children}
