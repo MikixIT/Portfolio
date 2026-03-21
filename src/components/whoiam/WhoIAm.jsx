@@ -28,6 +28,8 @@ function WhoIAm() {
   const titleRef = useRef(null);
   const contentRef = useRef(null);
   const imageRef = useRef(null);
+  const imageButtonRef = useRef(null);
+  const imagePopRef = useRef(null);
   const skillRefs = useRef([]);
   const floatTweensRef = useRef([]);
   const dragStateRef = useRef({
@@ -115,6 +117,49 @@ function WhoIAm() {
       ctx.revert();
     };
   }, []);
+
+  const handleImageClick = () => {
+    if (!imageButtonRef.current || !imagePopRef.current) return;
+
+    gsap.killTweensOf(imageButtonRef.current);
+    gsap.killTweensOf(imagePopRef.current);
+
+    gsap.to(imageButtonRef.current, {
+      rotationY: "+=360",
+      duration: 1.05,
+      ease: "power2.inOut",
+      overwrite: true,
+    });
+
+    gsap.fromTo(
+      imagePopRef.current,
+      {
+        autoAlpha: 0,
+        scale: 0.7,
+        x: 0,
+        y: 0,
+        rotate: -10,
+      },
+      {
+        autoAlpha: 1,
+        scale: 1,
+        x: 12,
+        y: -18,
+        rotate: -4,
+        duration: 0.18,
+        ease: "back.out(2.8)",
+      }
+    );
+
+    gsap.to(imagePopRef.current, {
+      autoAlpha: 0,
+      scale: 0.92,
+      y: -30,
+      duration: 0.35,
+      delay: 0.2,
+      ease: "power2.in",
+    });
+  };
 
   const handlePointerDown = (index) => (event) => {
     const skill = skillRefs.current[index];
@@ -247,8 +292,19 @@ function WhoIAm() {
           </div>
 
           <div className="profile-image" ref={imageRef}>
-            <div className="image-container">
-              <img src={profileImage} alt="Michael Torres" />
+            <div className="image-wrapper">
+              <button
+                type="button"
+                className="image-container"
+                ref={imageButtonRef}
+                onClick={handleImageClick}
+                aria-label="Spin profile image"
+              >
+                <img src={profileImage} alt="Michael Torres" />
+              </button>
+              <span className="image-pop" ref={imagePopRef} aria-hidden="true">
+                CLICK!
+              </span>
             </div>
           </div>
         </div>

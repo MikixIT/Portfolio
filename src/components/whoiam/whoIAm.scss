@@ -139,18 +139,39 @@
       grid-area: image;
     }
 
+    .image-wrapper {
+      position: relative;
+      perspective: 1400px;
+    }
+
     .image-container {
+      display: block;
       position: relative;
       width: 300px;
       height: 300px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      appearance: none;
       border-radius: 50%;
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      transition: box-shadow 0.3s ease;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      will-change: transform;
 
       &:hover {
-        transform: scale(1.05);
         box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--body_color);
+        outline-offset: 8px;
       }
 
       img {
@@ -158,6 +179,7 @@
         height: 100%;
         object-fit: cover;
         border-radius: 50%;
+        transition: transform 0.3s ease;
       }
 
       &::before {
@@ -179,10 +201,35 @@
       }
     }
 
+    .image-pop {
+      position: absolute;
+      top: 0.2rem;
+      right: -0.5rem;
+      z-index: 3;
+      padding: 0.45rem 0.72rem;
+      border-radius: 14px 14px 14px 4px;
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      font-family: "Anton", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+    }
+
     @media (max-width: 768px) {
       .image-container {
         width: 200px;
         height: 200px;
+      }
+
+      .image-pop {
+        right: -0.15rem;
       }
     }
   }
@@ -201,6 +248,12 @@
   }
 
   .light-mode & {
+    .image-pop {
+      background: rgba(17, 17, 17, 0.78);
+      color: #fff;
+      border-color: rgba(17, 17, 17, 0.15);
+    }
+
     .skill-tag {
       background: var(--body_color);
       color: var(--body_bg);
