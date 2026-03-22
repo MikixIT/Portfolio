@@ -8,6 +8,7 @@ import { useDarkMode } from "../../../hooks/useDarkMode";
 
 function ContactForm({ buttonContactClicked }) {
   const [isDarkMode] = useDarkMode();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -33,15 +34,20 @@ function ContactForm({ buttonContactClicked }) {
 
   const onSubmit = async (event) => {
     event.preventDefault();
+    if (isSubmitting) return;
+
     const form = event.target;
     const formData = new FormData(event.target);
 
     formData.append("access_key", "3943c3b4-7425-4dcf-99d5-39eb387913cd");
+    formData.append("subject", "New portfolio contact message");
 
     const object = Object.fromEntries(formData);
     const json = JSON.stringify(object);
 
     try {
+      setIsSubmitting(true);
+
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
@@ -99,6 +105,8 @@ function ContactForm({ buttonContactClicked }) {
           confirmButton: "swal2-theme-btn",
         },
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -108,6 +116,13 @@ function ContactForm({ buttonContactClicked }) {
       <div className="form-left">
         <h3>Fill the form. It's easy.</h3>
         <form onSubmit={onSubmit}>
+          <input
+            type="checkbox"
+            name="botcheck"
+            tabIndex="-1"
+            autoComplete="off"
+            style={{ display: "none" }}
+          />
           <div className="form-group">
             <input
               className="input-form"
@@ -134,8 +149,8 @@ function ContactForm({ buttonContactClicked }) {
               required
             />
           </div>
-          <button type="submit" className="submit-button">
-            Send Message
+          <button type="submit" className="submit-button" disabled={isSubmitting}>
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>
