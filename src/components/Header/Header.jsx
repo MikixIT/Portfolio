@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./header.scss";
 import "animate.css";
 import { gsap } from "gsap";

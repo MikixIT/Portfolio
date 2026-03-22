@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import "./modal.scss";
 import { useDarkMode } from "../../hooks/useDarkMode";
 import { gsap } from "gsap";
@@ -67,7 +67,7 @@ function Modal({
       );
   };
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     if (isClosing) return;
     setIsClosing(true);
 
@@ -107,7 +107,7 @@ function Modal({
         },
         "-=0.2"
       );
-  };
+  }, [closeModal, isClosing]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -133,7 +133,7 @@ function Modal({
       document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "";
     };
-  }, [isOpenModal]);
+  }, [handleCloseModal, isOpenModal]);
 
   if (!isOpenModal) {
     return null;
