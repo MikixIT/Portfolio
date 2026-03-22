@@ -30,6 +30,16 @@ function WhoIAm() {
   const imageRef = useRef(null);
   const imageButtonRef = useRef(null);
   const imagePopRef = useRef(null);
+  const canDragImageRef = useRef(false);
+  const imageInteractionRef = useRef({
+    pointerId: null,
+    startX: 0,
+    startY: 0,
+    lastX: 0,
+    lastTime: 0,
+    velocityX: 0,
+    hasMoved: false,
+  });
   const skillRefs = useRef([]);
   const floatTweensRef = useRef([]);
   const dragStateRef = useRef({
@@ -42,6 +52,10 @@ function WhoIAm() {
   });
 
   useEffect(() => {
+    canDragImageRef.current =
+      typeof window !== "undefined" &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         titleRef.current,
@@ -120,15 +134,27 @@ function WhoIAm() {
 
   const handleImageClick = () => {
     if (!imageButtonRef.current || !imagePopRef.current) return;
+    if (imageInteractionRef.current.hasMoved) {
+      imageInteractionRef.current.hasMoved = false;
+      return;
+    }
+
+    const currentRotation =
+      Number(gsap.getProperty(imageButtonRef.current, "rotationY")) || 0;
+    const targetRotation =
+      (Math.floor(currentRotation / 360) + 1) * 360;
 
     gsap.killTweensOf(imageButtonRef.current);
     gsap.killTweensOf(imagePopRef.current);
 
     gsap.to(imageButtonRef.current, {
-      rotationY: "+=360",
-      duration: 1.05,
+      rotationY: targetRotation,
+      duration: 1.45,
       ease: "power2.inOut",
       overwrite: true,
+      onComplete: () => {
+        gsap.set(imageButtonRef.current, { rotationY: 0, rotationX: 0 });
+      },
     });
 
     gsap.fromTo(
@@ -159,6 +185,127 @@ function WhoIAm() {
       delay: 0.2,
       ease: "power2.in",
     });
+  };
+
+  const handleImagePointerDown = (event) => {
+    if (!canDragImageRef.current || !imageButtonRef.current) return;
+
+    imageInteractionRef.current = {
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      lastX: event.clientX,
+      lastTime: event.timeStamp,
+      velocityX: 0,
+      hasMoved: false,
+    };
+
+    event.currentTarget.setPointerCapture(event.pointerId);
+    gsap.killTweensOf(imageButtonRef.current);
+  };
+
+  const handleImagePointerMove = (event) => {
+    if (!canDragImageRef.current || !imageButtonRef.current) return;
+
+    const interaction = imageInteractionRef.current;
+    if (interaction.pointerId !== event.pointerId) return;
+
+    const deltaX = event.clientX - interaction.startX;
+    const deltaY = event.clientY - interaction.startY;
+    const deltaTime = Math.max(16, event.timeStamp - interaction.lastTime);
+    const instantVelocityX = (event.clientX - interaction.lastX) / deltaTime;
+    const rotateY = gsap.utils.clamp(-16, 16, deltaX * 0.16);
+    const rotateX = gsap.utils.clamp(-8, 8, -deltaY * 0.09);
+
+    if (Math.abs(deltaX) > 4 || Math.abs(deltaY) > 4) {
+      interaction.hasMoved = true;
+    }
+
+    interaction.lastX = event.clientX;
+    interaction.lastTime = event.timeStamp;
+    interaction.velocityX = interaction.velocityX * 0.35 + instantVelocityX * 0.65;
+
+    gsap.to(imageButtonRef.current, {
+      rotationY: rotateY,
+      rotationX: rotateX,
+      scale: 1.02,
+      duration: 0.16,
+      ease: "power2.out",
+      overwrite: true,
+    });
+  };
+
+  const resetImageTilt = (event) => {
+    if (!imageButtonRef.current) return;
+
+    const interaction = imageInteractionRef.current;
+    if (event?.pointerId != null && interaction.pointerId !== event.pointerId) {
+      return;
+    }
+
+    if (event?.currentTarget?.hasPointerCapture?.(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    if (interaction.hasMoved) {
+      const totalDeltaX = (event?.clientX ?? interaction.lastX) - interaction.startX;
+      const flingDirection =
+        Math.sign(totalDeltaX) || Math.sign(interaction.velocityX) || 1;
+      const spinEnergy =
+        Math.abs(totalDeltaX) * 0.02 + Math.abs(interaction.velocityX) * 90;
+      const extraTurns = gsap.utils.clamp(
+        1,
+        2,
+        Math.round(spinEnergy / 80) + 1
+      );
+      const currentRotationY =
+        Number(gsap.getProperty(imageButtonRef.current, "rotationY")) || 0;
+      const normalizedRotation =
+        ((currentRotationY % 360) + 360) % 360;
+      const snapOffset =
+        flingDirection > 0
+          ? normalizedRotation === 0
+            ? 360
+            : 360 - normalizedRotation
+          : normalizedRotation === 0
+            ? -360
+            : -normalizedRotation;
+      const targetRotation =
+        currentRotationY +
+        snapOffset +
+        flingDirection * 360 * (extraTurns - 1);
+
+      gsap.to(imageButtonRef.current, {
+        rotationY: targetRotation,
+        rotationX: 0,
+        scale: 1,
+        duration: gsap.utils.clamp(1.05, 1.55, 1.05 + extraTurns * 0.14),
+        ease: "power3.out",
+        overwrite: true,
+        onComplete: () => {
+          gsap.set(imageButtonRef.current, { rotationY: 0, rotationX: 0 });
+        },
+      });
+    } else {
+      gsap.to(imageButtonRef.current, {
+        rotationY: 0,
+        rotationX: 0,
+        scale: 1,
+        duration: 0.45,
+        ease: "power3.out",
+        overwrite: true,
+      });
+    }
+
+    imageInteractionRef.current = {
+      pointerId: null,
+      startX: 0,
+      startY: 0,
+      lastX: 0,
+      lastTime: 0,
+      velocityX: 0,
+      hasMoved: interaction.hasMoved,
+    };
   };
 
   const handlePointerDown = (index) => (event) => {
@@ -298,9 +445,19 @@ function WhoIAm() {
                 className="image-container"
                 ref={imageButtonRef}
                 onClick={handleImageClick}
+                onDragStart={(event) => event.preventDefault()}
+                onPointerDown={handleImagePointerDown}
+                onPointerMove={handleImagePointerMove}
+                onPointerUp={resetImageTilt}
+                onPointerCancel={resetImageTilt}
+                onPointerLeave={resetImageTilt}
                 aria-label="Spin profile image"
               >
-                <img src={profileImage} alt="Michael Torres" />
+                <img
+                  src={profileImage}
+                  alt="Michael Torres"
+                  draggable={false}
+                />
               </button>
               <span className="image-pop" ref={imagePopRef} aria-hidden="true">
                 CLICK!

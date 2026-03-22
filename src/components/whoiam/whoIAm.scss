@@ -160,6 +160,7 @@
       cursor: pointer;
       transform-style: preserve-3d;
       will-change: transform;
+      user-select: none;
 
       &:hover {
         box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
@@ -180,6 +181,9 @@
         object-fit: cover;
         border-radius: 50%;
         transition: transform 0.3s ease;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-drag: none;
       }
 
       &::before {
