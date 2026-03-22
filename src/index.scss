@@ -3,7 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 html,
 body {
   overscroll-behavior: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
