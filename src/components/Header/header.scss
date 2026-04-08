@@ -97,3 +97,41 @@
     }
   }
 }
+
+.header-tooltip {
+  z-index: 1200 !important;
+  padding: 0.52rem 0.94rem !important;
+  border-radius: 999px !important;
+  font-size: 0.68rem !important;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid color-mix(in srgb, var(--body_color) 20%, transparent);
+  box-shadow: 0 10px 25px color-mix(in srgb, var(--body_color) 18%, transparent);
+}
+
+.header-tooltip--dark {
+  background: linear-gradient(
+    130deg,
+    color-mix(in srgb, var(--body_color) 90%, #fff 10%) 0%,
+    color-mix(in srgb, var(--body_color) 72%, var(--body_bg) 28%) 100%
+  ) !important;
+  color: var(--body_bg) !important;
+}
+
+.header-tooltip--light {
+  background: linear-gradient(
+    130deg,
+    color-mix(in srgb, var(--body_color) 93%, #000 7%) 0%,
+    color-mix(in srgb, var(--body_color) 78%, var(--body_bg) 22%) 100%
+  ) !important;
+  color: var(--body_bg) !important;
+}
+
+.header-tooltip-arrow {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 2px;
+}

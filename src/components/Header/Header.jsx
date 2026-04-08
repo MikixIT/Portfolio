@@ -1,10 +1,12 @@
 import { useEffect, useRef } from "react";
 import "./header.scss";
 import "animate.css";
+import "react-tooltip/dist/react-tooltip.css";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiDownload } from "react-icons/hi";
+import { Tooltip } from "react-tooltip";
 import { useDarkMode } from "../../hooks/useDarkMode";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -120,7 +122,9 @@ function Header() {
         <a
           href="https://github.com/MikixIT/Portfolio/raw/refs/heads/portfolio/CV/MichaelTorres-CV.pdf"
           className="header-icon"
-          title="Download CV"
+          aria-label="Download CV"
+          data-tooltip-id="header-tooltip"
+          data-tooltip-content="Download CV"
           download
         >
           <HiDownload
@@ -130,6 +134,16 @@ function Header() {
           />
         </a>
       </div>
+      <Tooltip
+        id="header-tooltip"
+        place="bottom"
+        offset={14}
+        delayShow={80}
+        className={`header-tooltip ${
+          isDarkMode ? "header-tooltip--dark" : "header-tooltip--light"
+        }`}
+        classNameArrow="header-tooltip-arrow"
+      />
     </div>
   );
 }

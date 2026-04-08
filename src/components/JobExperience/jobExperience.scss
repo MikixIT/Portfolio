@@ -5,6 +5,8 @@
   --job-surface-strong: rgba(255, 255, 255, 0.05);
   --job-shadow: rgba(0, 0, 0, 0.24);
   --job-grid: rgba(255, 255, 255, 0.06);
+  --job-hover-color-fade: 0.65s;
+  --job-hover-motion: 0.38s;
   position: relative;
   min-height: 100vh;
   padding: clamp(5rem, 10vw, 8rem) clamp(1.25rem, 4vw, 3.5rem);
@@ -163,9 +165,9 @@
     user-select: none;
     touch-action: none;
     transition:
-      transform 0.35s ease,
-      border-color 0.35s ease,
-      box-shadow 0.35s ease;
+      transform var(--job-hover-motion) ease,
+      border-color var(--job-hover-color-fade) ease,
+      box-shadow var(--job-hover-color-fade) ease;
 
     &::before {
       content: "";
@@ -320,42 +322,13 @@
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    transition:
-      transform 0.28s ease,
-      background-color 0.28s ease,
-      color 0.28s ease,
-      border-color 0.28s ease,
-      box-shadow 0.28s ease;
-  }
-
-  .experience-card__metric {
     background: var(--body_color);
     color: var(--body_bg);
     border-color: var(--body_color);
-  }
-
-  .experience-card__stack-item {
-    background: transparent;
-    color: var(--body_color);
-  }
-
-  .experience-card:hover {
-    .experience-card__metric,
-    .experience-card__stack-item {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
-    }
-
-    .experience-card__metric {
-      background: transparent;
-      color: var(--body_color);
-    }
-
-    .experience-card__stack-item {
-      background: var(--body_color);
-      color: var(--body_bg);
-      border-color: var(--body_color);
-    }
+    transition:
+      background-color var(--job-hover-color-fade) ease,
+      color var(--job-hover-color-fade) ease,
+      border-color var(--job-hover-color-fade) ease;
   }
 
   @media (max-width: 960px) {
